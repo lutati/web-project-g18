@@ -1,0 +1,74 @@
+@import "/static/css/general.css";
+.title {
+    font-size: 2vw;
+    color: var(--primaryColor);
+    text-align: center;
+}
+
+#delivery_row {
+    width: auto;
+}
+
+#must {
+    color: red;
+}
+
+#payment {
+    box-shadow: 0.4vw 1vw rgba(0, 0.3, 0.7, 0.5);
+    width: 40%;
+    background: var(--primaryColor);
+    color: #fff;
+    box-sizing: border-box;
+    padding: 2vw 2vw 2vw;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: larger;
+}
+
+#form-pay {
+    margin-right: 50%;
+    border-style: groove;
+    background-color: white;
+    color: var(--primaryColor);
+    border: 2px solid var(--primaryColor);
+    box-sizing: content-box;
+    padding: 10px;
+    width: 100px;
+}
+
+#submit {
+    margin-right: 40%;
+    border-style: groove;
+    background-color: white;
+    color: var(--primaryColor);
+    border: 2px solid var(--primaryColor);
+    box-sizing: content-box;
+    padding: 10px;
+    width: 250px;
+}
+
+input {
+    height: 35%;
+    width: 80%;
+}
+
+#modalBtn {
+    margin-right: 50%;
+    width: 8.5vw;
+    text-align: center;
+    border-color: white;
+    outline: none;
+    height: 2.5vw;
+    background: linear-gradient(90deg, rgb(238, 214, 227), rgb(80, 13, 50));
+    color: #fff;
+    font-size: 1.1vw;
+    border-radius: 2vw;
+    font-weight: bold;
+}
+
+#modalBtn:hover {
+    cursor: pointer;
+    background: white;
+    color: #000;
+    font-weight: bold;
+}

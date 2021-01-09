@@ -1,0 +1,91 @@
+{% extends 'base_malabyu.html' %}
+
+{% set page_head_title = 'checkout' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('checkout.static', filename='css/checkout.css') }}"/>
+{% endblock %}
+
+
+
+{%  block page_body_header_add_item %}
+    <!-- <div id="add">
+        <span class="good_add">הפריט נוסף לסל בהצלחה!</span>
+        <span class="to_cart">מעבר לקופה</span>
+        <span class="close_add"> המשך בקניה X</span>
+    </div> -->
+{% endblock %}
+
+{#{% block page_body_nav_extra %}#}
+{#    <!-- <a href="/cakes">עוגות</a>#}
+{#    <a href="/product_cake"> > {{cake[0].name}}</a> -->#}
+{#{% endblock %}#}
+
+
+{% block page_body_main_content %}
+
+        <h1 class="title">פרטי משלוח ותשלום</h1>
+        <form name="checkout_form" method="post">
+            <table id="payment">
+                <tr id="table_title"></tr>
+                <th id="delivery_row"> פרטי המשלוח </th>
+                <th> פרטי אשראי </th>
+                </tr>
+                <tr id="must">
+                    <td>*שדות חובה</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td><label>שם פרטי ומשפחה* </label><br><input type="text" name="name" placeholder="שם פרטי ומשפחה" required><br><br></td>
+                    <td><label> שם בעל הכרטיס:*</label><br><input type="text" name="fname_card" placeholder=" שם פרטי ומשפחה בעל הכרטיס" required><br><br></td>
+                </tr>
+                <tr>
+                    <td><label> עיר:*</label><br><input type="text" name="city" placeholder="עיר" required><br><br>
+                    </td>
+                    <td><label> תעודת זהות:*</label><br><input type="text" name="id_num" placeholder="ת.ז 9 ספרות" pattern="[0-9]{9}" required><br><br></td>
+                </tr>
+                <tr>
+                    <td><label> כתובת:*</label><br><input type="text" name="address" placeholder="כתובת" required><br><br></td>
+                    <td><label> מספר כרטיס אשראי:*</label><br><input type="text" name="card_num" placeholder="xxxx-xxxx-xxxx-xxxx" pattern="[0-9]{16}" required><br><br></td>
+                </tr>
+                <tr>
+                    <td><label> דירה:</label><br><input type="text" name="door" placeholder="דירה"><br><br></td>
+                    <td><label>תוקף*</label><br><input type="month" name="month" placeholder="חודש" required><br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>דוא"ל:*</label><br><input type="email" name="email" placeholder="E-mail" required><br><br></td>
+                    <td><label>3 ספרות בגב הכרטיס</label><input type="number" name="CVV" placeholder="3 ספרות בגב הכרטיס" pattern="[0-9]{3}" required>
+                        <br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>מס' טלפו נייד:*</label><br> <input type="tel" name="tel" placeholder="טלפון" required><br><br></td>
+                    <td><br><br></td>
+                </tr>
+                <tr>
+                    <td><label>הערות:</label><br><textarea type="text" name="comments" cols="26vw" rows="4vw"></textarea><br><br>
+                    </td>
+                    <td><br><br></td>
+                </tr>
+                <tr>
+                    <td> אפשרות משלוח*<br> <select id="delivery" required>
+                            <option value="" hidden>בחר שיטת משלוח* </option>
+                            <option value="10"> משלוח עד הבית עם שליח- 10 ש"ח</option>
+                            <option value="1"> איסוף עצמי- 0 ש"ח </option>
+                        </select><br><br> </td>
+                    <td> <br><br> </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button id="modalBtn" class="button" type="submit" value="תשלום">
+                            ביצוע תשלום </button></td>
+                </tr>
+            </table>
+        </form>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('checkout.static', filename='js/checkout.js') }}"></script>
+{% endblock %}

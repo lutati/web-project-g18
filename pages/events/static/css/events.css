@@ -1,0 +1,87 @@
+@import "/static/css/general.css";
+
+.grid-container {
+    display: grid;
+    grid-gap: 2%;
+    padding: 1%;
+    justify-content: center;
+    align-content: center;
+    grid-template-rows: 0 16vw 16vw 15vw;
+    grid-template-columns: 23vw 23vw 23vw 23vw;
+    grid-template-areas: 'header header header header' 'leftS leftS rightS rightS' 'leftS leftS rightS rightS' 'leftS leftS rightS rightS' 'footer footer footer footer';
+}
+
+.item1 {
+    grid-area: header;
+}
+
+.item2 {
+    grid-area: rightS;
+    margin-bottom:10%;
+}
+
+.item3 {
+    grid-area: leftS;
+    margin-bottom:10%;
+}
+
+.item4 {
+    grid-area: footer;
+}
+
+.eventspic {
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #fff;
+    box-shadow: 2% 2% 1% #ccc;
+    -moz-box-shadow: 1vw 1vw 0.5vw #ccc;
+    -webkit-box-shadow: 1vw 1vw 0.5vw #ccc;
+    -khtml-box-shadow: 1vw 1vw 0.5vw #ccc;
+}
+
+.eventspic:hover {
+    transform: scale(1.2);
+}
+
+.phoneEv {
+    border: none;
+    width: 10%;
+    padding-right: 20%;
+    margin-top: 5%;
+}
+
+.phoneP {
+    left: 1%;
+    position: relative;
+    bottom: 10%;
+    text-align: center;
+    font-size: 1.5vw;
+    align-items: center;
+}
+
+.h3 {
+    font-size: 2vw;
+    color: var(--primaryColor);
+    font-weight: bold;
+    text-align: center;
+}
+
+.h3:hover {
+    transform: scale(1.05);
+}
+
+.text {
+    text-align: center;
+    font-size: 1.5vw;
+    align-items: center;
+    line-height: 200%;
+}
+
+div>div {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.footer{
+    margin-top:8%;
+}

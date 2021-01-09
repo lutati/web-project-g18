@@ -1,0 +1,91 @@
+{% extends 'base_malabyu.html' %}
+
+{% set page_head_title = 'contactus' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('contactus.static', filename='css/contactus.css') }}"/>
+{% endblock %}
+
+
+
+{%  block page_body_header_add_item %}
+    <!-- <div id="add">
+        <span class="good_add">הפריט נוסף לסל בהצלחה!</span>
+        <span class="to_cart">מעבר לקופה</span>
+        <span class="close_add"> המשך בקניה X</span>
+    </div> -->
+{% endblock %}
+
+{#{% block page_body_nav_extra %}#}
+{#    <!-- <a href="/cakes">עוגות</a>#}
+{#    <a href="/product_cake"> > {{cake[0].name}}</a> -->#}
+{#{% endblock %}#}
+
+
+{% block page_body_main_content %}
+
+    <div class="container1">
+        <span class="big-circle"></span>
+        <div class="form">
+            <div class="contact-info">
+                <h3 class="title">דברו איתנו</h3>
+                <p class="text"> אנחנו פה בשבילכם! פנו אלינו בכל בקשה שרק תרצו וצוות מלביהו ישמח לעזור בהקדם האפשרי
+                </p>
+
+
+
+                <div class="social-media">
+                    <p>קיבוץ דפנה, צמוד לקניונית<br> שעות פעילות: ימים ד'-ה' בין השעות 15:00-23:00<br> ימים ו'-ש' בין השעות 10:00-18:00<br> malabiahu@gmail.com <br> 04-8422554 <br> וכדי לעשות לכם את היום מתוק יותר, תוכלו למצוא אותנו גם בימי שישי במתחם מיקדו
+                        סנטר ת"א,
+                        <br>ובימי שבת בחוף גורדון ת"א.<br> חפשו אותנו ברשתות החברתיות</p>
+
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/malabiyahu" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                            <!--facebook logo-->
+                        </a>
+
+                        <a href="https://instagram.com/malabiyahu?igshid=14wnapaqqkw14" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                            <!--insta logo-->
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <!--circles at the back-->
+                <span class="circle one"></span>
+                <span class="circle two"></span>
+                <!--form-->
+                <div class=error id="error_message"></div>
+                <form action="contactus/contactus.html" id="myform" onsubmit="return validate();">
+                    <h3 class="title">צור קשר</h3>
+                    <div class="input-container">
+                        <input type="text" placeholder="שם" class="input" id="name" required />
+                    </div>
+
+                    <div class="input-container">
+                        <input type="email" placeholder="email" class="input" id="email" required />
+                    </div>
+
+                    <div class="input-container">
+                        <input type="tel" placeholder="טלפון" class="input" id="phone" required/>
+                    </div>
+
+                    <div class="input-container textarea">
+                        <textarea placeholder="הודעה" class="input" required></textarea>
+                    </div>
+                    <input id="btn" type="submit" value="שליחה" class="btn" />
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('contactus.static', filename='js/contactus.js') }}"></script>
+{% endblock %}
+
+

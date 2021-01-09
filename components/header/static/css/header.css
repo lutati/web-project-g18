@@ -1,0 +1,91 @@
+/*Pin the bar to top*/
+* {
+    font-family: calibri;
+    font-size: 100%;
+    --primaryColor: rgb(80, 13, 50);
+}
+
+body {
+    background-color: rgb(243, 240, 215);
+    direction: rtl;
+}
+
+main {
+    padding: 2%;
+    align-items: center;
+    justify-content: center;
+}
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+
+/*styling the navigator bar*/
+
+nav {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    background: rgb(80, 13, 50);
+    border-radius: 10px;
+}
+
+.logoBar {
+    width: 6vw;
+    margin-right: 10%;
+}
+
+
+/*styling Tabs*/
+
+nav ul {
+    display: flex;
+    align-items: center;
+    background: none;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-right: 0;
+    margin-right: 2%;
+    width: 100%;
+}
+
+nav ul li {
+    padding-right: 3%;
+    padding-left: 3%;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration-line: none;
+    padding-bottom: 10%;
+    display: block;
+    line-height: 1;
+    font-size: 2vw;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav ul li a:hover {
+    display: inline-block;
+    width: 120%;
+    margin: auto;
+    border-bottom-style: solid;
+}
+
+
+/*styling left icons*/
+
+nav div a {
+    padding-right: 3%;
+}
+
+.medialogos {
+    padding-left: 0;
+    margin-left: 0;
+    width: 15%;
+}
+.icon {
+    width: 25%;
+}

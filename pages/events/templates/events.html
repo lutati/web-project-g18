@@ -1,0 +1,93 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title> events</title>
+    <link rel="stylesheet" href="{{ url_for('events.static', filename='css/events.css') }}">
+
+</head>
+
+<body dir="rtl">
+{% include ('header.html') %}
+    <!--nav bar-->
+{#    <header>#}
+{#        <nav>#}
+{##}
+{#            <a href="HomePage.html"><img src="../header/logos/logo.png" alt="logo" class="logoBar"></a>#}
+{#            <ul id="links">#}
+{#                <li><a href="../HomePage.html">דף הבית</a></li>#}
+{#                <li><a href="../products/products.html">מוצרים</a></li>#}
+{#                <li><a href="events.html">אירועים</a></li>#}
+{#                <li><a href="../HomePage.html">קצת עלינו</a></li>#}
+{#                <li><a href="../contact/contact1.html">צרו קשר</a></li>#}
+{#                <li><a href="../login/login.html">התחברות</a></li>#}
+{#            </ul>#}
+{#            <div class="medialogos">#}
+{#                <a href="../cart/aboutus.html"><img src="../header/logos/cart.png" alt="cart" class="icon"></a>#}
+{#                <a href="https://www.facebook.com/malabiyahu"><img src="../header/logos/facebook.png" alt="facebook" class="icon"></a>#}
+{#                <a href="https://www.instagram.com/malabiyahu/"><img src="../header/logos/instagram.png" alt="instagram" class="icon"></a>#}
+{#            </div>#}
+{##}
+{#        </nav>#}
+{#    </header>#}
+
+    <div class="grid-container">
+        <!-- header-right-left-footer-->
+        <div class="item1">
+            <!--nav-->
+        </div>
+        <!--right side-->
+        <div class="item2">
+            <h3 class="h3">אירועי חברה</h3>
+            <p class="text">להפוך את יום הגיבוש או האירוע לחוויה ולפנק <br> את הצוות שלך במלבי טרי עם תוספות<br> מטורפות ומגוונות</p>
+            <img class="eventspic" src="{{ url_for('events.static', filename='media/event2.png') }}" alt="pic"></img>
+            <img class="phoneEv" src="{{ url_for('events.static', filename='media/phone.png') }}" alt="pic"></img>
+            <p class="phoneP">לפרטים נוספים חייגו : 04-8422554</p>
+        </div>
+        <!--left side-->
+
+        <div class="item3">
+            <h3 class="h3">דוכנים לחגיגות</h3>
+            <p class="text">לשדרג את האירוע שלך עם דוכן מלבי מפנק, בלי מאמץ<br>ימי הולדת | חתונות | מסיבות <br>כל אירוע משמח צריך להיות גם מתוק</p>
+              <img class="eventspic" src="{{ url_for('events.static', filename='media/event1.png') }}" alt="pic"></img>
+           <img class="phoneEv" src="{{ url_for('events.static', filename='media/phone.png') }}" alt="pic"></img>
+            <p class="phoneP">לפרטים נוספים חייגו : 04-8422554</p>
+
+
+        </div>
+        <div class="item4"> </div>
+    </div>
+{% include ('footer.html') %}
+    <!--Footer-->
+{#    <footer>#}
+{#        <div class="container2">#}
+{#            <div class="location">#}
+{#                <img src="../footer/logos/location.png" alt="image1" class="footericons">#}
+{#                <h2>כתובת</h2>#}
+{#                <h3>קיבוץ דפנה,<br> צמוד לקניונית<br> waze מלביהו</h3>#}
+{#            </div>#}
+{##}
+{#            <div class="phone">#}
+{#                <img src="../footer/logos/phone.png" alt="image1" class="footericons">#}
+{#                <h2>טלפון</h2>#}
+{#                <h3>052-5418835</h3>#}
+{#            </div>#}
+{##}
+{#            <div class="time">#}
+{#                <img src="../footer/logos/time.png" alt="image1" class="footericons">#}
+{#                <h2>שעות פעילות</h2>#}
+{#                <h3>ימים ד'-ה' 15:00-23:00<br>יום ו' 10:00-18:00<br>יום ש' 10:00-18:00</h3>#}
+{#            </div>#}
+{##}
+{#            <div class="contact">#}
+{#                <img src="../footer/logos/contact.png" alt="image1" class="footericons">#}
+{#                <h2>צרו קשר</h2>#}
+{#                <h3>כתבו לנו<br>malabiyahu@gmail.com</h3>#}
+{#            </div>#}
+{#        </div>#}
+{#        <h6><img src="../footer/logos/rights.png" alt="rights" class="rights">Developed by: Liran, Gal, Chen, Linoy</h6>#}
+{#    </footer>#}
+
+</body>
+
+</html>

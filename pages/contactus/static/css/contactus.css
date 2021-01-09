@@ -1,0 +1,244 @@
+@import "/static/css/general.css";
+.contactpage {
+    border-bottom-style: solid;
+}
+
+
+/* place the inner square*/
+
+.container1 {
+    z-index: 0;
+    position: relative;
+    left: 7%;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* design the form*/
+
+.form {
+    width: 60%;
+    background-color: rgb(248, 247, 234);
+    border-radius: 1%;
+    box-shadow: 0 0 2vw 0.1vw rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.error {
+    font-size: 1vw;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.contact-form {
+    background-color: var(--primaryColor);
+    position: relative;
+}
+
+
+/* circles at the back*/
+
+.circle {
+    border-radius: 50%;
+    background: linear-gradient(135deg, transparent 20%, #e97fcef3);
+    position: absolute;
+}
+
+.circle.one {
+    width: 7vw;
+    height: 7vw;
+    top: 9vw;
+    right: -3vw;
+}
+
+.circle.two {
+    width: 4vw;
+    height: 4vw;
+    top: 1vw;
+    right: 2vw;
+}
+
+
+/* little square*/
+
+.contact-form:before {
+    content: "";
+    position: absolute;
+    width: 2vw;
+    height: 2vw;
+    background-color: #e475c8f3;
+    transform: rotate(45deg);
+    top: 5vw;
+    left: -1vw;
+}
+
+form {
+    text-align: center;
+    padding: 2.3rem 2.2rem;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.title {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-bottom: 0.7rem;
+    text-align: center;
+}
+
+.title:hover {
+    transform: scale(1.05);
+}
+
+.input-container {
+    position: relative;
+    margin: 1rem 1rem;
+    margin-right: 4%;
+    padding: 1%;
+}
+
+.input {
+    margin-left: 10%;
+    text-align: right;
+    justify-content: right;
+    width: 100%;
+    outline: none;
+    border: 2px solid #fafafa;
+    background: none;
+    padding: 0.6rem 1.0rem;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+textarea.input {
+    padding: 0.8rem 1.2rem;
+    min-height: 150px;
+    border-radius: 22px;
+    resize: none;
+    overflow-y: auto;
+}
+
+.btn {
+    z-index: 2000;
+    font-weight: bold;
+    padding: 0.6rem 1.3rem;
+    background-color: #fff;
+    border: 2px solid #fafafa;
+    font-size: 0.95rem;
+    color:  rgb(80, 13, 50);
+    line-height: 1;
+    border-radius: 25px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+.contact-info {
+    padding: 2.3rem 2.2rem;
+    position: relative;
+}
+
+.contact-info .title {
+    color: var(--primaryColor);
+}
+
+.text {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #333;
+    margin: 1.5rem 0 2rem 0;
+}
+
+.contact-info .title:hover {
+    transform: scale(1.05);
+}
+
+.social-media p {
+    text-align: center;
+    justify-content: right;
+    line-height: 150%;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.social-icons {
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.social-icons a {
+    justify-content: right;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #e97bcdf3, #6d0553f3);
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 28%;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.05);
+}
+
+.contact-info:before {
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 100px;
+    border: 22px solid #f07cd3f3;
+    border-radius: 50%;
+    bottom: -77px;
+    right: 50px;
+    opacity: 0.3;
+}
+
+.big-circle {
+    background-image: url("malabi.png");
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    bottom: 53%;
+    right: 53%;
+    transform: translate(-30%, 38%);
+}
+
+.big-circle:after {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    background-color: rgb(243, 240, 215);
+    border-radius: 50%;
+    top: calc(50% - 180px);
+    left: calc(50% - 180px);
+}
+
+
+/* different resolutions*/

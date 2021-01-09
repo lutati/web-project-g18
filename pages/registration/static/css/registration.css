@@ -1,0 +1,166 @@
+@import "../general.css";
+body{
+   
+    background-color: rgb(243,240,215);
+    background-position: center;
+    font-family: calibri;
+}
+
+
+
+.regisbox{
+    box-shadow: 0.8vw 1.1vw rgba(0, 0, 0, 0.5);
+    border-radius: 10%;
+    width: 50%;
+    height:40rem;
+    background:var(--primaryColor);
+    color: #fff;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    margin-top:30rem;
+    
+}
+.error{
+    font-size: 1vw;
+    color:red;
+    position: absolute;
+    top:95%;
+    left:69%;
+}
+
+.logo1{
+    width:7vw;
+    height: 7vw;
+    border-radius: 50%;
+    position: absolute;
+    top: -3vw;
+    left: calc(48% - 3vw);
+}
+
+.logo1 :hover{
+    transform: scale(1.2)
+}
+
+.regisH1{
+    margin: 0;
+    padding: 0 0 1vw;
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.regisbox p{
+    margin: 0;
+    font-size:1vw;
+    padding-right:1%;
+    font-weight: bold;
+    text-align: right;
+}
+
+.regisbox input{
+    width: 100%;
+    margin-bottom: 1%;
+    text-align: right;
+}
+
+
+.regisbox input[type="text"], input[type="password"],input[type="email"],input[type="date"],input[type="tel"]
+{
+    border: none;
+    border-bottom: 0.05vw solid #fff;
+    background: transparent;
+    outline: none;
+    height: 2.5vw;
+    color: #fff;
+    font-size: 1vw;
+}
+.regisbox input[type="date"]{
+    color:gray;
+}
+.regisbox input[class="btn"]
+{
+    text-align: center;
+    border-color: white;
+    outline: none;
+    height: 2.5vw;
+    background: linear-gradient(90deg, rgb(238, 214, 227), rgb(80, 13, 50));
+    color: #fff;
+    font-size: 1.1vw;
+    border-radius: 2vw;
+    font-weight: bold;
+    width:30%;
+    margin-right:35%;
+    margin-bottom:1%;
+}
+.regisbox input[class="btn"]:hover
+{
+    cursor: pointer;
+    background: white;
+    color: #000;
+    font-weight: bold;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

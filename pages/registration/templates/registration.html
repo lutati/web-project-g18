@@ -1,0 +1,62 @@
+{% extends 'base_malabyu.html' %}
+
+{% set page_head_title = 'registration' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('registration.static', filename='css/registration.css') }}"/>
+{% endblock %}
+
+
+
+{%  block page_body_header_add_item %}
+    <!-- <div id="add">
+        <span class="good_add">הפריט נוסף לסל בהצלחה!</span>
+        <span class="to_cart">מעבר לקופה</span>
+        <span class="close_add"> המשך בקניה X</span>
+    </div> -->
+{% endblock %}
+
+{#{% block page_body_nav_extra %}#}
+{#    <!-- <a href="/cakes">עוגות</a>#}
+{#    <a href="/product_cake"> > {{cake[0].name}}</a> -->#}
+{#{% endblock %}#}
+
+
+{% block page_body_main_content %}
+ <!--registration-->
+        <div class="regisbox">
+            <img src="{{ url_for('login.static', filename='css/media/logo.png') }}"  class="logo1">
+            <h1 class="regisH1">התחברות</h1>
+            <div class=error id="error_message"></div>
+            <form onsubmit="return validate();" action="/login" method="post">
+                <p>שם מלא </p>
+                <input type="text" id="name" placeholder="הכנס שם מלא" required>
+                <p>email</p>
+                <input type="email" id="email" placeholder="הכנס כתובת דואר אלקטונית" onkeyup='check();' required>
+                <p>פלאפון</p>
+                <input type="tel" id="phone" placeholder="הכנס כתובת דואר אלקטונית" onkeyup='check();' required>
+                <p>תאריך לידה</p>
+                <input type="date" id="date" required>
+                <p>מין</p>
+                <select class="gender" name="מין" size=3>
+                <option>נקבה</option>
+                <option>זכר</option>
+                <option>אחר</option>
+            </select>
+                <br><br>
+
+                <p>סיסמא</p>
+                <input type="password" id="password" placeholder="הכנס סיסמא" onkeyup='check();' required>
+                <p>אשר סיסמא</p>
+                <input type="password" id="confirm_password" placeholder="אשר סיסמא" required><br><br>
+                <input type="submit" id="btn" class="btn" value="הרשמה" required>
+
+            </form>
+        </div>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('registration.static', filename='js/registration.js') }}"></script>
+{% endblock %}
+
+

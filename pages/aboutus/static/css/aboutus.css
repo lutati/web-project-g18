@@ -1,0 +1,100 @@
+@import "/static/css/general.css";
+
+.aboutuspage {
+    border-bottom-style: solid;
+}
+
+.about {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 30vw auto 30vw;
+    box-sizing: border-box;
+    padding: 2%;
+    grid-gap: 1rem 1rem;
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-align: center;
+}
+
+.about_us {
+    grid-row: 1/ span 1;
+    grid-column: 1/span 1;
+    font-size: 5vw;
+    height: 17vw;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.about_us:hover {
+    transform: scale(1.05);
+    color: var(--primaryColor);
+}
+
+.logo {
+    grid-row: 1/ span 1;
+    grid-column: 3/span 1;
+    width: 14vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+}
+
+.us {
+    grid-row: 1/span 1;
+    grid-column: 2/span 1;
+    text-align: center;
+    font-size: 1.2vw;
+    background-color: rgba(0, 0, 0, 0.034);
+}
+
+.place {
+    grid-row: 2/span 1;
+    grid-column: 3/span 1;
+    background-color: rgba(0, 0, 0, 0.034);
+    padding-top: 7%;
+}
+
+.hours {
+    grid-row: 2/span 1;
+    grid-column: 1/span 1;
+    background-color: rgba(0, 0, 0, 0.034);
+    padding-top: 7%;
+}
+
+.place2 {
+    grid-row: 3/span 1;
+    grid-column: 2/span 1;
+    font-size: 1.2vw;
+    background-color: rgba(0, 0, 0, 0.034);
+    line-height: 150%;
+}
+
+.mal2 {
+    grid-row: 2/span 1;
+    grid-column: 2/span 1;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25vw;
+    box-shadow: 1vw 1vw 1vw #ccc;
+    border-radius: 10%;
+}
+
+.mal {
+    grid-row: 3/span 1;
+    grid-column: 1/span 2;
+    width: 30vw;
+    box-shadow: 1vw 1vw 1vw #ccc;
+    border-radius: 10%;
+}
+
+.mal4 {
+    grid-row: 3/span 1;
+    grid-column: 3/span 2;
+    width: 30vw;
+    box-shadow: 1vw 1vw 1vw #ccc;
+    border-radius: 10%;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
