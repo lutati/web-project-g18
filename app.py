@@ -15,10 +15,41 @@ from pages.about.about import about
 
 app.register_blueprint(about)
 
+## contactus
+from pages.contactus.contactus import contactus
+
+app.register_blueprint(contactus)
+
+## checkout
+from pages.checkout.checkout import checkout
+
+app.register_blueprint(checkout)
+
+
+## Aboutus
+from pages.aboutus.aboutus import aboutus
+
+app.register_blueprint(aboutus)
+
 ## cart
 from pages.cart.cart import cart
 
 app.register_blueprint(cart)
+
+## events
+from pages.events.events import events
+
+app.register_blueprint(events)
+
+## login
+from pages.login.login import login
+
+app.register_blueprint(login)
+
+## registration
+from pages.registration.registration import registration
+
+app.register_blueprint(registration)
 #
 # ## Page error handlers
 # from pages.page_error_handlers.page_error_handlers import page_error_handlers

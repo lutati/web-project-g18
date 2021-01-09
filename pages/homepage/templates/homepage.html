@@ -1,7 +1,82 @@
-{% extends 'base.html' %}
+{% extends 'base_malabyu.html' %}
 
-{% set page_head_title = 'Homepage' %}
+{% set page_head_title = 'homepage' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('homepage.static', filename='css/homepage.css') }}"/>
+{% endblock %}
+
+
+
+{%  block page_body_header_add_item %}
+    <!-- <div id="add">
+        <span class="good_add">הפריט נוסף לסל בהצלחה!</span>
+        <span class="to_cart">מעבר לקופה</span>
+        <span class="close_add"> המשך בקניה X</span>
+    </div> -->
+{% endblock %}
+
+{#{% block page_body_nav_extra %}#}
+{#    <!-- <a href="/cakes">עוגות</a>#}
+{#    <a href="/product_cake"> > {{cake[0].name}}</a> -->#}
+{#{% endblock %}#}
+
 
 {% block page_body_main_content %}
-    Welcome!
+   <main>
+        <div class="container">
+            <img src="{{ url_for('homepage.static', filename='css/photos/background1.png') }}" class="background">
+            <img src="{{ url_for('homepage.static', filename='css/logos/logo.png') }}" class="welcomeLogo">
+            <p class="welcomePar">
+                במלביהו תוכלו להנות ממלבי ביתי, עם מגוון סירופים ותוספות ייחודים ובעשרה שקלים בלבד. <br> יש לנו גם טבעוני!
+                <br> בירה קרה, פינות ישיבה ומוזיקה טובה!<br>
+            </p>
+        </div>
+        <br><br>
+        <div class="line"></div>
+
+
+        <!--Recommended Products section-->
+        <h1>מומלצים</h1>
+        <div class="container1">
+            <img src="{{ url_for('homepage.static', filename='css/photos/image1.jpg') }}" alt="image1" class="reccomend" style="width:100%">
+            <div class="middle">
+                <div class="descrip">סחלב חם</div>
+            </div>
+        </div>
+        <div class="container1">
+            <img src="{{ url_for('homepage.static', filename='css/photos/image2.jpg') }}" alt="image2" class="reccomend" style="width:100%">
+            <div class="middle">
+                <div class="descrip">מלבי פיסטוק</div>
+            </div>
+        </div>
+        <div class="container1">
+            <img src="{{ url_for('homepage.static', filename='css/photos/image3.jpg') }}" alt="image3" class="reccomend" style="width:100%">
+            <div class="middle">
+                <div class="descrip">מלבי נוטלה</div>
+            </div>
+        </div>
+        <div class="container1">
+            <img src="{{ url_for('homepage.static', filename='css/photos/image4.jpg') }}" alt="image4" class="reccomend" style="width:100%">
+            <div class="middle">
+                <div class="descrip">מלבי פסיפלורה</div>
+            </div>
+        </div>
+        <div class="container1">
+            <img src="{{ url_for('homepage.static', filename='css/photos/image5.jpg') }}" alt="image5" class="reccomend" style="width:100%">
+            <div class="middle">
+                <div class="descrip">מלבי פירות יער</div>
+            </div>
+        </div>
+
+        <a class="forAllProducts" href="products/products.html">לכל המוצרים></a><br><br><br>
+        <div class="line"></div><br><br>
+    </main>
+
 {% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('homepage.static', filename='js/homepage.js') }}"></script>
+{% endblock %}
+
+

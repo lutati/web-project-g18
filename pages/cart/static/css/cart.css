@@ -1,4 +1,4 @@
-@import "../general.css";
+@import "/static/css/general.css";
 .header_items {
     color: var(--primaryColor);
     font-size: 2vw;
