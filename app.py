@@ -58,9 +58,7 @@ app.register_blueprint(registration)
 
 ###### Components
 ## Main menu
-from components.main_menu.main_menu import main_menu
 
-app.register_blueprint(main_menu)
 
 from components.header.header import header
 
