@@ -89,3 +89,15 @@ nav div a {
 .icon {
     width: 25%;
 }
+.hello_user{
+    color:white;
+    margin-left: 2%;
+}
+
+.logout:visited {
+    color: white;
+}
+
+.logout {
+    margin-left: 3%;
+}

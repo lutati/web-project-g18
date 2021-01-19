@@ -1,0 +1,88 @@
+@import "/static/css/general.css";
+
+.title {
+    font-size: 3vw;
+    color: var(--primaryColor);
+    text-align: center;
+}
+
+.productspage {
+    border-bottom-style: solid;
+}
+
+.product {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto auto auto;
+    margin: 2vw;
+    margin-right: 7%;
+    grid-gap: 2vw;
+}
+
+.product1 {
+    grid-row: 1/span 1;
+    grid-column: 1/span 1;
+}
+
+.product2 {
+    grid-row: 1/span 1;
+    grid-column: 2/span 1;
+}
+
+.product3 {
+    grid-row: 1/span 1;
+    grid-column: 3/span 1;
+}
+
+.img {
+    border: 2px solid #fff;
+    box-shadow: 2vw 2vw 5vw #ccc;
+    -moz-box-shadow: 2vw 2vw 5vw #ccc;
+    border-radius: 10%;
+    width: 80%;
+}
+
+.img:hover {
+    transform: scale(1.1);
+}
+
+.rose_btn,
+.malabi_btn,
+.sahlav_btn {
+    background-color: var(--primaryColor);
+    color: white;
+    cursor: pointer;
+    font-size: 2vw;
+    text-align: center;
+    border-color: white;
+    outline: none;
+    width: 10vw;
+    height: 3vw;
+    background: linear-gradient(90deg, rgb(238, 214, 227), rgb(80, 13, 50));
+    border-radius: 0.5vw;
+    font-weight: bold;
+    margin-right: 20%;
+    margin-top: 5%;
+}
+
+.rose_btn:hover,
+.malabi_btn:hover,
+.sahlav_btn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+select,
+option,
+form,
+p {
+    font-size: 1.3vw;
+    cursor: pointer;
+    margin-right: 20%;
+}
+
+.malabi_options,
+.rose_options,
+.sahlav_options {
+    display: none;
+}

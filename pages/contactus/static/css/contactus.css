@@ -219,7 +219,7 @@ textarea.input {
 }
 
 .big-circle {
-    background-image: url("malabi.png");
+    background-image: url("../media/malabi.png");
     position: absolute;
     width: 500px;
     height: 500px;

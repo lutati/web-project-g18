@@ -28,25 +28,27 @@
             <img src="{{ url_for('login.static', filename='css/media/logo.png') }}"  class="logo1">
             <h1 class="regisH1">התחברות</h1>
             <div class=error id="error_message"></div>
-            <form onsubmit="return validate();" action="/login" method="post">
-                <p>שם מלא </p>
-                <input type="text" id="name" placeholder="הכנס שם מלא" required>
+            <form  method="post" action="/registration" >
+                <p>שם פרטי </p>
+                <input type="text" id="name" name="firstname" placeholder="הכנס שם פרטי" required>
+                <p>שם משפחה </p>
+                <input type="text" id="name" name="lastname" placeholder="הכנס שם משפחה" required>
                 <p>email</p>
-                <input type="email" id="email" placeholder="הכנס כתובת דואר אלקטונית" onkeyup='check();' required>
+                <input type="email" id="email" name="email" placeholder="הכנס כתובת דואר אלקטונית" onkeyup='check();' required>
                 <p>פלאפון</p>
-                <input type="tel" id="phone" placeholder="הכנס כתובת דואר אלקטונית" onkeyup='check();' required>
+                <input type="tel" id="phone" name="phone" placeholder="הכנס כתובת דואר אלקטונית" onkeyup='check();' required>
                 <p>תאריך לידה</p>
-                <input type="date" id="date" required>
+                <input type="date" id="date" name="date" required>
                 <p>מין</p>
-                <select class="gender" name="מין" size=3>
-                <option>נקבה</option>
-                <option>זכר</option>
-                <option>אחר</option>
+                <select class="gender" name="gender"  size=3>
+                <option value="נקבה">נקבה</option>
+                <option value="זכר">זכר</option>
+                <option value="אחר">אחר</option>
             </select>
                 <br><br>
 
                 <p>סיסמא</p>
-                <input type="password" id="password" placeholder="הכנס סיסמא" onkeyup='check();' required>
+                <input type="password" id="password" name="password" placeholder="הכנס סיסמא" onkeyup='check();' required>
                 <p>אשר סיסמא</p>
                 <input type="password" id="confirm_password" placeholder="אשר סיסמא" required><br><br>
                 <input type="submit" id="btn" class="btn" value="הרשמה" required>

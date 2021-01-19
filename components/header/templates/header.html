@@ -7,15 +7,21 @@
 <header>
         <nav>
 
-            <a href="/HomePage"><img src="header/logos/logo.png" alt="logo" class="logoBar"></a>
+            <a href="/"><img src="header/logos/logo.png" alt="logo" class="logoBar"></a>
             <ul id="links">
-                <li><a href="/HomePage" class="homepage">דף הבית</a></li>
+                <li><a href="/" class="homepage">דף הבית</a></li>
                 <li><a href="/products" class="productspage">מוצרים</a></li>
                 <li><a href="/events" class="eventspage">אירועים</a></li>
                 <li><a href="/aboutus" class="aboutuspage">קצת עלינו</a></li>
                 <li><a href="/contactus" class="contactpage">צרו קשר</a></li>
-                <li><a href="/login" class="loginpage">התחברות</a></li>
+                <li><a href="/login" class="loginpage" id="login">התחברות</a></li>
             </ul>
+            {% if session.get('username') %}
+                <h3 class="hello_user">  שלום   {{ session.get('username') }}! </h3>
+                <a class="logout" href="/logout">התנתק</a>
+            {% else %}
+                <h3 class="hello_user">שלום אורח! </h3>
+            {% endif %}
             <div class="medialogos">
                 <a href="/cart"><img src="header/logos/cart.png" alt="cart" class="icon"></a>
                 <a href="https://www.facebook.com/malabiyahu"><img src="header/logos/facebook.png" alt="facebook" class="icon"></a>

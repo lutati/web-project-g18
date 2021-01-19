@@ -23,7 +23,7 @@
 
 
 {% block page_body_main_content %}
-
+<script src="https://kit.fontawesome.com/64d58efce2.js"></script>
     <div class="container1">
         <span class="big-circle"></span>
         <div class="form">
@@ -60,22 +60,22 @@
                 <span class="circle two"></span>
                 <!--form-->
                 <div class=error id="error_message"></div>
-                <form action="contactus/contactus.html" id="myform" onsubmit="return validate();">
+                <form method="post" action="/contactus" id="myform" onsubmit="return validate();">
                     <h3 class="title">צור קשר</h3>
                     <div class="input-container">
-                        <input type="text" placeholder="שם" class="input" id="name" required />
+                        <input type="text" placeholder="שם" class="input" id="name" name="fullname" required />
                     </div>
 
                     <div class="input-container">
-                        <input type="email" placeholder="email" class="input" id="email" required />
+                        <input type="email" placeholder="email" class="input" id="email" name="email" required />
                     </div>
 
                     <div class="input-container">
-                        <input type="tel" placeholder="טלפון" class="input" id="phone" required/>
+                        <input type="tel" placeholder="טלפון" class="input" id="phone" name="phone" required/>
                     </div>
 
                     <div class="input-container textarea">
-                        <textarea placeholder="הודעה" class="input" required></textarea>
+                        <textarea placeholder="הודעה" class="input" name="text_area" required></textarea>
                     </div>
                     <input id="btn" type="submit" value="שליחה" class="btn" />
                 </form>

@@ -7,17 +7,10 @@ app.config.from_pyfile('settings.py')
 ###### Pages
 ## Homepage
 from pages.homepage.homepage import homepage
-
 app.register_blueprint(homepage)
-
-## About
-from pages.about.about import about
-
-app.register_blueprint(about)
 
 ## contactus
 from pages.contactus.contactus import contactus
-
 app.register_blueprint(contactus)
 
 ## checkout
@@ -43,12 +36,15 @@ app.register_blueprint(events)
 
 ## login
 from pages.login.login import login
-
 app.register_blueprint(login)
+
+## products
+from pages.products.products import products
+app.register_blueprint(products)
+
 
 ## registration
 from pages.registration.registration import registration
-
 app.register_blueprint(registration)
 #
 # ## Page error handlers

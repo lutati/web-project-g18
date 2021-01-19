@@ -1,6 +1,7 @@
-@import "../general.css";
+@import "/static/css/general.css";
+
 .big-circle {
-    background-image: url("../contact/malabi.png");
+    background-image: url("/pages/contactus/static/media/malabi.png");
     position: absolute;
     width: 470px;
     height: 470px;

@@ -1,0 +1,95 @@
+{% extends 'base_malabyu.html' %}
+
+{% set page_head_title = 'products' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('products.static', filename='css/products.css') }}"/>
+{% endblock %}
+
+
+
+{% block page_body_header_add_item %}
+    <!-- <div id="add">
+        <span class="good_add">הפריט נוסף לסל בהצלחה!</span>
+        <span class="to_cart">מעבר לקופה</span>
+        <span class="close_add"> המשך בקניה X</span>
+    </div> -->
+{% endblock %}
+
+{#{% block page_body_nav_extra %}#}
+{#    <!-- <a href="/cakes">עוגות</a>#}
+{#    <a href="/product_cake"> > {{cake[0].name}}</a> -->#}
+{#{% endblock %}#}
+
+
+{% block page_body_main_content %}
+
+    <h1 class="title">מוצרי החנות</h1>
+    <div class="product">
+        <div class="header">
+        </div>
+        <div class="product2">
+            <img class="img" src="{{ url_for('products.static', filename='media/vradim.jpg') }}" alt="rose">
+                <button class="rose_btn" name="product2" onclick="rose_options();">מי ורדים</button>
+                <div class="rose_options" ; id="rose_options">
+                    <p>מחיר: 25 ש"ח ליחידה</p>
+                    <br><br><br>
+                    <input type="submit" name="vradim_25" value="הוסף לעגלה"/>
+                </div>
+        </div>
+        <div class="product3">
+            <img class="img" src="{{ url_for('products.static', filename='media/sahlav.jpg') }}" alt="sahlav">
+            <button class="sahlav_btn" onclick="sahlav_options();">סחלב</button>
+            <div class="sahlav_options" id="sahlav_options">
+                <p>מחיר: 15 ש"ח ליחידה</p>
+                <select class="kind" name="סוג">
+                    <option value="סוג" select hidden>סוג</option>
+                    <option value="חלבי">חלבי</option>
+                    <option value="טבעוני">טבעוני</option>
+                </select> <br><br>
+                <div class="cart3">
+                    <input type="submit" name="sahlav_15" value="הוסף לעגלה"/>
+                </div>
+            </div>
+        </div>
+        <div class="product1">
+            <img class="img" src="{{ url_for('products.static', filename='media/malabi2.jpg') }}" alt="malabi">
+            <button class="malabi_btn" onclick="malabi_options();">מלבי</button>
+            <div class="malabi_options" ; id="malabi_options">
+                <p>מחיר: 10 ש"ח ליחידה</p>
+                <select name="type_malabi">
+                    <option select hidden>סוג</option>
+                    <option value="חלבי">חלבי</option>
+                    <option value="טבעוני">טבעוני</option>
+                </select> <br><br>
+                <select name="syrup">
+                    <option value="סירופ" select hidden>סירופ</option>
+                    <option value="מי ורדים">מי ורדים</option>
+                    <option value="אספרסו"> אספרסו</option>
+                    <option value="פירות יער">פירות יער</option>
+                    <option value="נוטלה">נוטלה</option>
+                    <option value="פסיפלורה">פסיפלורה</option>
+                    <option value="פיסטוק">פיסטוק</option>
+                </select><br><br>
+                <p>תוספות:</p>
+                <input type="checkbox" name="adds" value="קדאיף">קדאיף<br>
+                <input type="checkbox" name="adds" value="בוטנים מלוחים">בוטנים מלוחים<br>
+                <input type="checkbox" name="adds" value=" בוטנים מסוכרים">בוטנים מסוכרים<br>
+                <input type="checkbox" name="adds" value=" קוקוס קלוי">קוקוס קלוי<br>
+                <br>
+                <input type="submit" name="malabi_10" value="הוסף לעגלה"/>
+            </div>
+        </div>
+
+        <div class="footer">
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('products.static', filename='js/products.js') }}"></script>
+{% endblock %}
+
+
