@@ -29,55 +29,57 @@
 
         <table id="table_shopping">
             <tr id="title_table">
-                <th id="first_row"><br>עלות ליחידה<br></th>
-                <th id="first_row"><br>כמות<br></th>
                 <th id="first_row"><br>סה"כ<br></th>
+                <th id="first_row"><br>כמות<br></th>
+                <th id="first_row"><br>עלות ליחידה<br></th>
                 <th id="first_row"><br>שם המוצר<br></th>
-                <th id="first_row"><br> <br></th>
+                <th id="first_row"><br><br></th>
                 <th id="first_row"><br>מחיקה<br></th>
             </tr>
-            <tr id="row">
-                <td id="total_per_row"></td>
+                {% for item in cart %}
+                     <tr id="row">
+                        <td id="total_per_row"></td>
                 <td>
                     <div class="quantity buttons_added">
                         <input type="button" value="-" class="minus" onclick="decreaseValue1(1)"><input type="number" id="number1" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
                         <input type="button" value="+" class="plus" onclick="increaseValue1(1)">
                     </div>
                 </td>
-                <td>₪20</td>
-                <td>מלביהו פיסטוק</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.product_name }}</td>
                 <td><img class="malabi" src="malabi.jpg"></img>
                 </td>
                 <td> <img class="remove" src="remove.png" onclick="deleteRow(this)"> </td>
             </tr>
-            <tr id="row">
-                <td id="total_per_row"></td>
-                <td>
-                    <div class="quantity buttons_added">
-                        <input type="button" value="-" class="minus" onclick="decreaseValue1(2)"><input type="number" id="number2" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
-                        <input type="button" value="+" class="plus" onclick="increaseValue1(2)">
-                    </div>
-                </td>
-                <td>₪20</td>
-                <td>מלביהו פיסטוק</td>
-                <td><img class="malabi" src="malabi.jpg"></img>
-                </td>
-                <td><img class="remove" src="remove.png"> </td>
-            </tr>
-            <tr id="row">
-                <td id="total_per_row"></td>
-                <td>
-                    <div class="quantity buttons_added">
-                        <input type="button" value="-" class="minus" onclick="decreaseValue1(3)"><input type="number" id="number3" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
-                        <input type="button" value="+" class="plus" onclick="increaseValue1(3)">
-                    </div>
-                </td>
-                <td>₪20</td>
-                <td>מלביהו פיסטוק</td>
-                <td><img class="malabi" src="malabi.jpg"></img>
-                </td>
-                <td><img class="remove" src="remove.png"> </td>
-            </tr>
+            {% endfor %}
+{#            <tr id="row">#}
+{#                <td id="total_per_row"></td>#}
+{#                <td>#}
+{#                    <div class="quantity buttons_added">#}
+{#                        <input type="button" value="-" class="minus" onclick="decreaseValue1(2)"><input type="number" id="number2" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">#}
+{#                        <input type="button" value="+" class="plus" onclick="increaseValue1(2)">#}
+{#                    </div>#}
+{#                </td>#}
+{#                <td>₪20</td>#}
+{#                <td>מלביהו פיסטוק</td>#}
+{#                <td><img class="malabi" src="malabi.jpg"></img>#}
+{#                </td>#}
+{#                <td><img class="remove" src="remove.png"> </td>#}
+{#            </tr>#}
+{#            <tr id="row">#}
+{#                <td id="total_per_row"></td>#}
+{#                <td>#}
+{#                    <div class="quantity buttons_added">#}
+{#                        <input type="button" value="-" class="minus" onclick="decreaseValue1(3)"><input type="number" id="number3" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">#}
+{#                        <input type="button" value="+" class="plus" onclick="increaseValue1(3)">#}
+{#                    </div>#}
+{#                </td>#}
+{#                <td>₪20</td>#}
+{#                <td>מלביהו פיסטוק</td>#}
+{#                <td><img class="malabi" src="malabi.jpg"></img>#}
+{#                </td>#}
+{#                <td><img class="remove" src="remove.png"> </td>#}
+{#            </tr>#}
 
         </table>
     </div>

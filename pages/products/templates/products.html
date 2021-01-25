@@ -30,32 +30,38 @@
         </div>
         <div class="product2">
             <img class="img" src="{{ url_for('products.static', filename='media/vradim.jpg') }}" alt="rose">
-                <button class="rose_btn" name="product2" onclick="rose_options();">מי ורדים</button>
+            <button class="rose_btn" name="product2" onclick="rose_options();">מי ורדים</button>
                 <div class="rose_options" ; id="rose_options">
+                    <form action="/vradim" method="get" id="rose_product">
                     <p>מחיר: 25 ש"ח ליחידה</p>
                     <br><br><br>
                     <input type="submit" name="vradim_25" value="הוסף לעגלה"/>
+                    </form>
+
                 </div>
         </div>
         <div class="product3">
             <img class="img" src="{{ url_for('products.static', filename='media/sahlav.jpg') }}" alt="sahlav">
             <button class="sahlav_btn" onclick="sahlav_options();">סחלב</button>
             <div class="sahlav_options" id="sahlav_options">
+                <form action="/sahlav" method="get" id="sahlav_product">
                 <p>מחיר: 15 ש"ח ליחידה</p>
-                <select class="kind" name="סוג">
+                <select class="kind" name="type_sahlav">
                     <option value="סוג" select hidden>סוג</option>
-                    <option value="חלבי">חלבי</option>
-                    <option value="טבעוני">טבעוני</option>
+                    <option value="חלבי" name="milk">חלבי</option>
+                    <option value="טבעוני" name="vegan">טבעוני</option>
                 </select> <br><br>
                 <div class="cart3">
                     <input type="submit" name="sahlav_15" value="הוסף לעגלה"/>
                 </div>
+                </form>
             </div>
         </div>
         <div class="product1">
             <img class="img" src="{{ url_for('products.static', filename='media/malabi2.jpg') }}" alt="malabi">
             <button class="malabi_btn" onclick="malabi_options();">מלבי</button>
             <div class="malabi_options" ; id="malabi_options">
+                  <form action="/malabi" method="get" id="malabi_product">
                 <p>מחיר: 10 ש"ח ליחידה</p>
                 <select name="type_malabi">
                     <option select hidden>סוג</option>
@@ -72,12 +78,13 @@
                     <option value="פיסטוק">פיסטוק</option>
                 </select><br><br>
                 <p>תוספות:</p>
-                <input type="checkbox" name="adds" value="קדאיף">קדאיף<br>
-                <input type="checkbox" name="adds" value="בוטנים מלוחים">בוטנים מלוחים<br>
-                <input type="checkbox" name="adds" value=" בוטנים מסוכרים">בוטנים מסוכרים<br>
-                <input type="checkbox" name="adds" value=" קוקוס קלוי">קוקוס קלוי<br>
+                <input type="checkbox" name="adds1" value="קדאיף">קדאיף<br>
+                <input type="checkbox" name="adds2" value="בוטנים מלוחים">בוטנים מלוחים<br>
+                <input type="checkbox" name="adds3" value=" בוטנים מסוכרים">בוטנים מסוכרים<br>
+                <input type="checkbox" name="adds4" value=" קוקוס קלוי">קוקוס קלוי<br>
                 <br>
                 <input type="submit" name="malabi_10" value="הוסף לעגלה"/>
+                  </form>
             </div>
         </div>
 
