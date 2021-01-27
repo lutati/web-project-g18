@@ -65,9 +65,6 @@ def products_malabi():
         # price = 10
         malabi_id_int = malabi_product_id[0].Product_ID
         cart_id_int = session['cart_number']
-        toppings = [request.args.get('adds1'), request.args.get('adds2'), request.args.get('adds3'),
-                    request.args.get('adds4')]
-        print(toppings)
         affect_rows_cart_malabi = dbManager.commit(
             "insert into carts(cart_id, product_id, syrup, product_name, quantity, product_type) VALUES"
             " ('%s', '%s', '%s', '%s', '%s', '%s')" %

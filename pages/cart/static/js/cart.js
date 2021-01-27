@@ -15,7 +15,6 @@ function finishOrder() {
 
 
     //function openModal(){
-    //alert("kjkk");
     modal.style.display = 'block';
 }
 
@@ -55,12 +54,12 @@ function decreaseValue1(x) {
 
 
 function calculate_per_row() {
-    var table = document.getElementById("table_shopping");
 
+    var table = document.getElementById("table_shopping");
     var sumVal = 0;
     for (var i = 1; i < table.rows.length; i++) {
         quantity = table.rows[i].cells[1].getElementsByTagName('div')[0].getElementsByTagName('input')[1].value;
-        sumVal = quantity * parseInt(table.rows[i].cells[2].innerHTML.substring(1));
+        sumVal = quantity * parseInt(table.rows[i].cells[2].innerHTML.substring(0,2));
         table.rows[i].cells[0].innerText = "₪" + sumVal;
     }
     //calculateTotalPrice();
@@ -73,7 +72,7 @@ function calculateTotalPrice() {
     var sumVal = 0;
 
     for (var i = 1; i < table.rows.length - 1; i++) {
-        sumVal = sumVal + parseInt(table.rows[i].cells[0].innerHTML.substring(1));
+        sumVal = sumVal + parseInt(table.rows[i].cells[0].innerHTML);
     }
-    document.getElementById("total_per_row").innerText = "₪" + sumVal;
+    document.getElementById("total_per_row").innerText = "" + sumVal;
 }

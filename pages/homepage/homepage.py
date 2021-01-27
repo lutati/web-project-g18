@@ -18,3 +18,4 @@ def index():
             session['cart_number'] = cart_id[0].cartid
 
     return render_template('homepage.html')
+

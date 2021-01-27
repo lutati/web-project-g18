@@ -38,7 +38,7 @@
             </tr>
                 {% for item in cart %}
                      <tr id="row">
-                        <td id="total_per_row"></td>
+                        <td id="total_per_row"> </td>
                 <td>
                     <div class="quantity buttons_added">
                         <input type="button" value="-" class="minus" onclick="decreaseValue1(1)"><input type="number" id="number1" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
@@ -47,10 +47,15 @@
                 </td>
                 <td>{{ item.price }}</td>
                 <td>{{ item.product_name }}</td>
-                <td><img class="malabi" src="malabi.jpg"></img>
+                <td><img class="malabi" src="{{ url_for('cart.static', filename='images/malabi.jpg') }}"></img>
                 </td>
-                <td> <img class="remove" src="remove.png" onclick="deleteRow(this)"> </td>
-            </tr>
+                    <td>
+                     <form id="delete" method="post" action="/delete_item">
+                     <input type="hidden" name="hidden_id" value="{{ item.id }}">
+                     <button type="submit">
+                     <img class="remove" src="{{ url_for('cart.static', filename='images/remove.png') }}" alt="הסר"></button>
+                     </form>
+                    </td></tr>
             {% endfor %}
 {#            <tr id="row">#}
 {#                <td id="total_per_row"></td>#}
