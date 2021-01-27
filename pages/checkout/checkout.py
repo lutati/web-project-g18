@@ -31,12 +31,6 @@ def order_customer():
         affect_rows = dbManager.commit(
             "insert into orders(Full_Name, Email, Phone, City, Street, Apartment, Comments, Delivery_Option) VALUES"
             " ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % (
-            full_name, email, phone, city, address, door, comments, delivery))
+                full_name, email, phone, city, address, door, comments, delivery))
 
-        myproduct_id_int = myproduct_id[0].Product_ID
-        affect_rows_cart_sahlav = dbManager.commit(
-            "insert into carts(cart_id, product_id, product_name, quantity, product_type) VALUES"
-            " ('%s', '%s', '%s', '%s', '%s')" %
-            (cart_id_int, myproduct_id_int, myproduct_name, 1, myproduct_type))
-
-        return render_template('products.html')
+        return render_template('checkout.html')

@@ -8,7 +8,7 @@
 
 
 
-{%  block page_body_header_add_item %}
+{% block page_body_header_add_item %}
     <!-- <div id="add">
         <span class="good_add">הפריט נוסף לסל בהצלחה!</span>
         <span class="to_cart">מעבר לקופה</span>
@@ -29,63 +29,35 @@
 
         <table id="table_shopping">
             <tr id="title_table">
-                <th id="first_row"><br>סה"כ<br></th>
-                <th id="first_row"><br>כמות<br></th>
                 <th id="first_row"><br>עלות ליחידה<br></th>
+                <th id="first_row"><br>כמות<br></th>
+                <th id="first_row"><br>סה"כ <br></th>
                 <th id="first_row"><br>שם המוצר<br></th>
                 <th id="first_row"><br><br></th>
                 <th id="first_row"><br>מחיקה<br></th>
             </tr>
-                {% for item in cart %}
-                     <tr id="row">
-                        <td id="total_per_row"> </td>
-                <td>
-                    <div class="quantity buttons_added">
-                        <input type="button" value="-" class="minus" onclick="decreaseValue1(1)"><input type="number" id="number1" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
-                        <input type="button" value="+" class="plus" onclick="increaseValue1(1)">
-                    </div>
-                </td>
-                <td>{{ item.price }}</td>
-                <td>{{ item.product_name }}</td>
-                <td><img class="malabi" src="{{ url_for('cart.static', filename='images/malabi.jpg') }}"></img>
-                </td>
-                    <td>
-                     <form id="delete" method="post" action="/delete_item">
-                     <input type="hidden" name="hidden_id" value="{{ item.id }}">
-                     <button type="submit">
-                     <img class="remove" src="{{ url_for('cart.static', filename='images/remove.png') }}" alt="הסר"></button>
-                     </form>
-                    </td></tr>
-            {% endfor %}
-{#            <tr id="row">#}
-{#                <td id="total_per_row"></td>#}
-{#                <td>#}
-{#                    <div class="quantity buttons_added">#}
-{#                        <input type="button" value="-" class="minus" onclick="decreaseValue1(2)"><input type="number" id="number2" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">#}
-{#                        <input type="button" value="+" class="plus" onclick="increaseValue1(2)">#}
-{#                    </div>#}
-{#                </td>#}
-{#                <td>₪20</td>#}
-{#                <td>מלביהו פיסטוק</td>#}
-{#                <td><img class="malabi" src="malabi.jpg"></img>#}
-{#                </td>#}
-{#                <td><img class="remove" src="remove.png"> </td>#}
-{#            </tr>#}
-{#            <tr id="row">#}
-{#                <td id="total_per_row"></td>#}
-{#                <td>#}
-{#                    <div class="quantity buttons_added">#}
-{#                        <input type="button" value="-" class="minus" onclick="decreaseValue1(3)"><input type="number" id="number3" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">#}
-{#                        <input type="button" value="+" class="plus" onclick="increaseValue1(3)">#}
-{#                    </div>#}
-{#                </td>#}
-{#                <td>₪20</td>#}
-{#                <td>מלביהו פיסטוק</td>#}
-{#                <td><img class="malabi" src="malabi.jpg"></img>#}
-{#                </td>#}
-{#                <td><img class="remove" src="remove.png"> </td>#}
-{#            </tr>#}
 
+            {% for item in cart %}
+                    <tr id="row">
+                        <td> {{ item.price }} </td>
+                        <td>
+                            {{ item.quantity }}
+                        </td>
+                        <td>₪{{ item.price *  item.quantity }}</td>
+                        <td>{{ item.product_name }}</td>
+                        <td><img class="malabi" src="{{ url_for('cart.static', filename='images/malabi.jpg') }}"></img>
+                        </td>
+                        <td>
+                            <form id="delete" method="post" action="/delete_item">
+                                <input type="hidden" name="hidden_id" value="{{ item.product_id }}">
+                                <button name="remove" type="submit">
+                                    <img class="remove" src="{{ url_for('cart.static', filename='images/remove.png') }}"
+                                         alt="הסר"></button>
+                            </form>
+                        </td>
+                    </tr>
+
+            {% endfor %}
         </table>
     </div>
     <div class="things">הנחיות מיוחדות
@@ -93,14 +65,18 @@
     </textarea></div>
     <br>
     <br>
-    <button id="modalBtn" class="payment" type="submit" value="תשלום" onclick="finishOrder()"><img id="cart" src="cart.png" width="30px" height="30px"></img>
-      מעבר לביצוע תשלום </button>
+    <button id="modalBtn" class="payment" type="submit" value="תשלום" action="/payment_item" onclick="finishOrder()"><img id="cart" src="cart.png"width="30px"
+                                                                                                   height="30px"></img>
+        מעבר לביצוע תשלום
+    </button>
     <div id="simpleModal" class="modal">
         <div class="modal-content">
             <div class="upper"></div>
             <span class="closeBtn" onclick=" closeModal()">&times;</span><br>
             <p class="upper_modal">אתה עומד לעבור לאתר מאובטח <br> תודה על קנייתך, מליבהו :)</p> <br>
-            <a href="checkout"><button id="insideModal"> אישור </button></a>
+            <a href="checkout">
+                <button id="insideModal"> אישור</button>
+            </a>
         </div>
     </div>
     </body>

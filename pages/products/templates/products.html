@@ -31,62 +31,94 @@
         <div class="product2">
             <img class="img" src="{{ url_for('products.static', filename='media/vradim.jpg') }}" alt="rose">
             <button class="rose_btn" name="product2" onclick="rose_options();">מי ורדים</button>
-                <div class="rose_options" ; id="rose_options">
-                    <form action="/vradim" method="get" id="rose_product">
+            <div class="rose_options" ; id="rose_options">
+                <form action="/vradim" method="get" id="rose_product">
                     <p>מחיר: 25 ש"ח ליחידה</p>
                     <br><br><br>
+                    <p> כמות:</p><br>
+                    <div class="quantity buttons_added">
+                        <input type="number" id="number1" step="1" min="1" max="" name="quantityV" value="1"
+                               title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+                    </div>
+                    <br><br>
                     <input type="submit" name="vradim_25" value="הוסף לעגלה"/>
-                    </form>
+                </form>
 
-                </div>
+            </div>
         </div>
         <div class="product3">
+
             <img class="img" src="{{ url_for('products.static', filename='media/sahlav.jpg') }}" alt="sahlav">
             <button class="sahlav_btn" onclick="sahlav_options();">סחלב</button>
-            <div class="sahlav_options" id="sahlav_options">
-                <form action="/sahlav" method="get" id="sahlav_product">
-                <p>מחיר: 15 ש"ח ליחידה</p>
-                <select class="kind" name="type_sahlav">
-                    <option value="סוג" select hidden>סוג</option>
-                    <option value="חלבי" name="milk">חלבי</option>
-                    <option value="טבעוני" name="vegan">טבעוני</option>
-                </select> <br><br>
-                <div class="cart3">
-                    <input type="submit" name="sahlav_15" value="הוסף לעגלה"/>
+            <form action="/sahlav" method="GET" id="sahlav_product">
+                <div class="sahlav_options" id="sahlav_options">
+                    <p>מחיר: 15 ש"ח ליחידה</p>
+                    <select class="kind" name="type_sahlav" required>
+                        <option value="סוג" select hidden>סוג</option>
+                        <option value="חלבי" name="milk">חלבי</option>
+                        <option value="טבעוני" name="vegan">טבעוני</option>
+                    </select> <br><br>
+                    <p> כמות:</p><br>
+                    <div class="quantity buttons_added">
+                        <input type="number" id="number1" step="1" min="1" max="" name="quantityS" value="1"
+                               title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+                    </div>
+                    <br><br>
+                    <div class="cart3">
+                        <input type="submit" name="sahlav_15" value="הוסף לעגלה"/>
+                    </div>
                 </div>
-                </form>
-            </div>
+            </form>
         </div>
         <div class="product1">
             <img class="img" src="{{ url_for('products.static', filename='media/malabi2.jpg') }}" alt="malabi">
             <button class="malabi_btn" onclick="malabi_options();">מלבי</button>
             <div class="malabi_options" ; id="malabi_options">
-                  <form action="/malabi" method="get" id="malabi_product">
-                <p>מחיר: 10 ש"ח ליחידה</p>
-                <select name="type_malabi">
-                    <option select hidden>סוג</option>
-                    <option value="חלבי">חלבי</option>
-                    <option value="טבעוני">טבעוני</option>
-                </select> <br><br>
-                <select name="syrup">
-                    <option value="סירופ" select hidden>סירופ</option>
-                    <option value="מי ורדים">מי ורדים</option>
-                    <option value="אספרסו"> אספרסו</option>
-                    <option value="פירות יער">פירות יער</option>
-                    <option value="נוטלה">נוטלה</option>
-                    <option value="פסיפלורה">פסיפלורה</option>
-                    <option value="פיסטוק">פיסטוק</option>
-                </select><br><br>
-                <select name="toppings" value="adds"><br>
-                    <option name="adds1" value="תוספות" select hidden>תוספת</option>
-                    <option name="adds1" value="קדאיף">שערות קדאיף</option>
-                    <option name="adds2" value="בוטנים מלוחים">בוטנים מלוחים</option>
-                    <option name="adds3" value="בוטנים מסוכרים">בוטנים מסוכרים</option>
-                    <option name="adds4" value="קוקוס קלוי">קוקוס קלוי</option>
-                </select>
-                <br><br>
-                <input type="submit" name="malabi_10" value="הוסף לעגלה"/>
-                  </form>
+                <form action="/malabi" method="get" id="malabi_product">
+                    <p>מחיר: 10 ש"ח ליחידה</p>
+                    <select name="type_malabi" required>
+                        <option select hidden>סוג</option>
+                        <option value="חלבי">חלבי</option>
+                        <option value="טבעוני">טבעוני</option>
+                    </select> <br><br>
+                    <select name="syrup" required>
+                        <option value="סירופ" select hidden>סירופ</option>
+                        <option value="מי ורדים">מי ורדים</option>
+                        <option value="אספרסו"> אספרסו</option>
+                        <option value="פירות יער">פירות יער</option>
+                        <option value="נוטלה">נוטלה</option>
+                        <option value="פסיפלורה">פסיפלורה</option>
+                        <option value="פיסטוק">פיסטוק</option>
+                    </select><br><br>
+                    <select id="topping" name="toppings" value="adds" required><br>
+                        <option name="adds1" value="תוספות" select hidden>תוספת</option>
+                        <option name="adds1" value="קדאיף">שערות קדאיף</option>
+                        <option name="adds2" value="בוטנים מלוחים">בוטנים מלוחים</option>
+                        <option name="adds3" value="בוטנים מסוכרים">בוטנים מסוכרים</option>
+                        <option name="adds4" value="קוקוס קלוי">קוקוס קלוי</option>
+                    </select><br>
+                    <p> כמות:</p><br>
+                    <div class="quantity buttons_added">
+                        <input type="number" id="number1" step="1" min="1" max="" name="quantity" value="1"
+                               title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+                    </div>
+                    <br><br>
+                    <button id="modalBtn" name="malabi_10" class="payment" type="submit" value="הוסף לעגלה"
+                            onclick="finishOrder()"><img id="cart" src="cart.png" width="30px"
+                                                         height="30px"></img>
+                        הוסף לעגלה
+                    </button>
+                    <div id="simpleModal" class="modal">
+                        <div class="modal-content">
+                            <div class="upper"></div>
+                            <span class="closeBtn" onclick="closeModal()">&times;</span><br>
+                            <p class="upper_modal">אתה עומד לעבור לאתר מאובטח <br> תודה על קנייתך, מליבהו :)</p> <br>
+                            <a href="checkout">
+                                <button id="insideModal"> אישור</button>
+                            </a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
 

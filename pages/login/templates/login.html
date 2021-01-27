@@ -29,6 +29,15 @@
     <div class="loginbox">
         <img src="{{ url_for('login.static', filename='css/media/avatar.png') }}"  class="avatar">
         <h1 class="loginH1">התחברות</h1>
+         {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                  {{ message }}
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
         <div class=error id="error_message"></div>
 
         <form onsubmit="return validate();" action="/login" method="POST">
@@ -37,9 +46,9 @@
             <p class="logintext">סיסמא</p>
             <input type="password" id="password" name="password" placeholder="הכנס סיסמא" required>
             <input type="submit" class="btn" value="התחבר">
+
             <a class="regis" href="/registration">הרשמה לאתר</a>
         </form>
-
     </div>
 {% endblock %}
 

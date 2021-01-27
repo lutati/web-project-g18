@@ -6,8 +6,8 @@
     var error_message = document.getElementById("error_message");
     
 
-    if(name.length < 5){
-      text = "נא להכניס שם מלא";
+    if(name.length < 2){
+      text = "אתה לא מעודכן נא להכניס שם מלא";
       error_message.innerHTML = text;
       return false;
      
@@ -35,7 +35,6 @@
 
     alert("הרישום בוצע בהצלחה");
      document.getElementById("btn").value="הרישום בוצע";
-     window.location.href ="./login.html";
      return false;
   
   }

@@ -88,6 +88,10 @@ input[type="password"] {
     color: #fff;
     font-size: 1vw;
 }
+.flashes{
+    color: #9C1A1C;
+    text-align:center;
+}
 
 .loginbox input[class="btn"] {
     text-align: center;

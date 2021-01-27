@@ -8,4 +8,7 @@ header = Blueprint('header', __name__, static_folder='static', static_url_path='
 def logout_func():
     session.pop('logged_in', None)
     session.pop('username', None)
+    session.pop('is_cart', None)
+    session.pop('cart_number', None)
+
     return render_template('/homepage.html')

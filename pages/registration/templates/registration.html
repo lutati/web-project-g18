@@ -28,7 +28,7 @@
             <img src="{{ url_for('login.static', filename='css/media/logo.png') }}"  class="logo1">
             <h1 class="regisH1">התחברות</h1>
             <div class=error id="error_message"></div>
-            <form  method="post" action="/registration" >
+            <form  onsubmit="return validate();" method="post" action="/registration" >
                 <p>שם פרטי </p>
                 <input type="text" id="name" name="firstname" placeholder="הכנס שם פרטי" required>
                 <p>שם משפחה </p>

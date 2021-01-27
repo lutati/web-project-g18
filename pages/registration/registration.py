@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect, url_for
 from utilities.db.db_manager import dbManager
 
 # cart blueprint definition
@@ -21,6 +21,6 @@ def index():
              ))
         print(affected_rows)
 
-        return render_template('login.html')
+        return redirect('/login')
 
     return render_template('registration.html')

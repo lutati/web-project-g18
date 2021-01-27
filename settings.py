@@ -5,7 +5,7 @@ load_dotenv()
 
 # Secret key setting from .env for Flask sessions
 SECRET_KEY = os.environ.get('SECRET_KEY')
-PERMANENT_SESSION_LIFETIME = timedelta(minutes=5)
+PERMANENT_SESSION_LIFETIME = timedelta(minutes=4)
 
 # DB base configuration from .env for modularity and security reasons
 DB = {
