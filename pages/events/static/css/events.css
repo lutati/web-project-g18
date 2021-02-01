@@ -10,7 +10,10 @@
     grid-template-columns: 23vw 23vw 23vw 23vw;
     grid-template-areas: 'header header header header' 'leftS leftS rightS rightS' 'leftS leftS rightS rightS' 'leftS leftS rightS rightS' 'footer footer footer footer';
 }
-
+.changes{
+    color: #3A7734;
+    text-align: center;
+}
 .item1 {
     grid-area: header;
 }

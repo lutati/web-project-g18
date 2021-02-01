@@ -9,17 +9,9 @@
 
 
 {%  block page_body_header_add_item %}
-    <!-- <div id="add">
-        <span class="good_add">הפריט נוסף לסל בהצלחה!</span>
-        <span class="to_cart">מעבר לקופה</span>
-        <span class="close_add"> המשך בקניה X</span>
-    </div> -->
+
 {% endblock %}
 
-{#{% block page_body_nav_extra %}#}
-{#    <!-- <a href="/cakes">עוגות</a>#}
-{#    <a href="/product_cake"> > {{cake[0].name}}</a> -->#}
-{#{% endblock %}#}
 
 
 {% block page_body_main_content %}
@@ -60,7 +52,7 @@
                 <span class="circle two"></span>
                 <!--form-->
                 <div class=error id="error_message"></div>
-                <form method="post" action="/contactus" id="myform" onsubmit="return validate();">
+                <form method="post" action="/contactus" id="myform">
                     <h3 class="title">צור קשר</h3>
                     <div class="input-container">
                         <input type="text" placeholder="שם" class="input" id="name" name="fullname" required />

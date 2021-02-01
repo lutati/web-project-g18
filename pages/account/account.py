@@ -1,5 +1,3 @@
-from flask import Blueprint, render_template, session, redirect, url_for, request
-from utilities.db.db_manager import dbManager
 from pages.products.products import *
 
 # cart blueprint definition
@@ -11,7 +9,8 @@ account = Blueprint('account', __name__, static_folder='static', static_url_path
 @account.route('/account')
 def index():
     if 'logged_in' in session:
-        user_details = dbManager.fetch('SELECT * from customers where Email=%s', (session['email_user'],))
+        query = DBQuery()
+        user_details = query.get_user_details(session['email_user'])
         print(user_details)
     return render_template('/account.html', account=user_details)
 
@@ -24,13 +23,9 @@ def update_details():
         last_name = request.form['LastName']
         birthdate = request.form['BD']
         phone = request.form['phone']
-
-        row_affect = dbManager.commit(
-            'update customers set  First_Name=%s, Last_Name=%s, Birth_Date=%s, Phone=%s where Email=%s',
-            (first_name, last_name, birthdate, phone, id))
-
-        user = dbManager.fetch('select * from customers where Email=%s',
-                               (id,))
+        query = DBQuery()
+        row_update = query.update_customer(first_name, last_name, birthdate, phone, id)
+        user = query.get_user(id)
         print(user)
         session['username'] = user[0].First_Name
         session['last_name'] = user[0].Last_Name
@@ -45,10 +40,9 @@ def update_details():
 def delete_details():
     if request.method == 'POST':
         id = session['email_user']
-        row_affect = dbManager.commit(
-            'delete from orders where made_by=%s',
-            (id,))
-        row_affect_user = dbManager.commit('delete from customers where Email=%s', (id,))
+        query = DBQuery()
+        delete_user = query.delete_user_orders(id)
+        delete_user_customer = query.delete_user_customer(id)
         flash('עצובים להיפרד, לא מאוחר להירשם שוב :)')
         session.pop('logged_in', None)
         session.pop('username', None)

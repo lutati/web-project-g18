@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, session, url_for, redirect, flash
 from flask import flash
 # cart blueprint definition
+from utilities.db.DB_query import DBQuery
 from utilities.db.db_manager import dbManager
 
 login = Blueprint('login', __name__, static_folder='static', static_url_path='/login', template_folder='templates')
@@ -12,8 +13,8 @@ def index():
     if request.method == 'POST':
         uname = request.form['email']
         password = request.form['password']
-        user = dbManager.fetch('select * from customers where Email=%s and User_Password=%s',
-                               (uname, password))
+        query = DBQuery()
+        user = query.user_data(uname, password)
 
         if user and len(user):
             session['logged_in'] = True
@@ -23,14 +24,10 @@ def index():
             session['phone'] = user[0].Phone
             session['birth_date'] = user[0].Birth_Date
             session['gender'] = user[0].Gender
-
             print(session['email_user'])
             if 'is_cart' not in session:
-
-                cart_id = dbManager.fetch('select (max(order_id)+1) as cartid from orders')
-
-                # affect_new_customer = dbManager.commit('INSERT INTO orders (order_id) values (%s)',
-                #                                        (cart_id[0].cartid,))
+                query = DBQuery()
+                cart_id = query.get_max_order()
                 print(cart_id)
                 if cart_id:
                     session['is_cart'] = True

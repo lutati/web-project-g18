@@ -60,10 +60,9 @@ def products_in_orders():
         flash('שלום אורח! על מנת להזמין אנא הירשם תחילה, תודה')
         return render_template('products.html')
     if request.method == 'GET':
-        print("bla")
         myproduct_name = "מי ורדים"
-        row = dbManager.fetch('select * from products where Product_Name=%s',
-                              (myproduct_name,))
+        query = DBQuery()
+        row = query.get_product_vradim(myproduct_name)
         new_quantity = request.args.get('quantityV')
         total_price = int(row[0].Price) * int(new_quantity)
         print(row)
@@ -84,14 +83,12 @@ def products_sahlav():
         flash('שלום אורח! על מנת להזמין אנא הירשם תחילה, תודה')
         return render_template('products.html')
     if request.method == 'GET':
-        x = DBQuery()
         myproduct_name = "סחלב"
         myproduct_type = request.args.get('type_sahlav')
         cart_id_int = session['cart_number']
-        print(cart_id_int)
         new_quantity = request.args.get('quantityS')
-        row = dbManager.fetch('select * from products where Product_Name=%s and Dairy=%s',
-                              (myproduct_name, myproduct_type))
+        query = DBQuery()
+        row = query.get_product_sahlav(myproduct_name, myproduct_type)
         total_price = int(row[0].Price) * int(new_quantity)
         item_array = {
             str(row[0].Product_ID): {'name': row[0].Product_Name, 'id': row[0].Product_ID,
@@ -113,10 +110,9 @@ def products_malabi():
         myproduct_type = request.args.get('type_malabi')
         malabi_syrup = request.args.get('syrup')
         malabi_topping = request.args.get('toppings')
-
         new_quantity = request.args.get('quantity')
-        row = dbManager.fetch('select * from products where Dairy=%s and Syrup=%s and Topping=%s',
-                              (myproduct_type, malabi_syrup, malabi_topping))
+        query = DBQuery()
+        row = query.get_product_malabi(myproduct_type, malabi_syrup, malabi_topping)
         total_price = int(row[0].Price) * int(new_quantity)
         item_array = {
             str(row[0].Product_ID): {'name': row[0].Product_Name, 'id': row[0].Product_ID,

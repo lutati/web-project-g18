@@ -9,29 +9,22 @@
 
 <body dir="rtl">
 {% include ('header.html') %}
-    <!--nav bar-->
-{#    <header>#}
-{#        <nav>#}
-{##}
-{#            <a href="HomePage.html"><img src="../header/logos/logo.png" alt="logo" class="logoBar"></a>#}
-{#            <ul id="links">#}
-{#                <li><a href="../HomePage.html">דף הבית</a></li>#}
-{#                <li><a href="../products/products.html">מוצרים</a></li>#}
-{#                <li><a href="events.html">אירועים</a></li>#}
-{#                <li><a href="../HomePage.html">קצת עלינו</a></li>#}
-{#                <li><a href="../contact/contact1.html">צרו קשר</a></li>#}
-{#                <li><a href="../login/login.html">התחברות</a></li>#}
-{#            </ul>#}
-{#            <div class="medialogos">#}
-{#                <a href="../cart/aboutus.html"><img src="../header/logos/cart.png" alt="cart" class="icon"></a>#}
-{#                <a href="https://www.facebook.com/malabiyahu"><img src="../header/logos/facebook.png" alt="facebook" class="icon"></a>#}
-{#                <a href="https://www.instagram.com/malabiyahu/"><img src="../header/logos/instagram.png" alt="instagram" class="icon"></a>#}
-{#            </div>#}
-{##}
-{#        </nav>#}
-{#    </header>#}
 
+
+{% with messages = get_flashed_messages() %}
+
+              {% if messages %}
+                  <div class="changes">
+                <h5>
+                {% for message in messages %}
+                  {{ message }}
+                {% endfor %}
+                </h5>
+                  </div>
+              {% endif %}
+            {% endwith %}
     <div class="grid-container">
+
         <!-- header-right-left-footer-->
         <div class="item1">
             <!--nav-->

@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template, request, session, flash
+
+from utilities.db.DB_query import DBQuery
 from utilities.db.db_manager import dbManager
 
 # cart blueprint definition
@@ -31,11 +33,10 @@ def order_customer():
         month = request.form['month']
         cvv = request.form['CVV']
         print(delivery)
+        query = DBQuery()
+        affect_row = query.set_new_order(full_name, email, phone, city, address, door, comments, delivery,
+                                         (session['all_total_quantity']),
+                                         (session['all_total_price']))
 
-        affect_rows = dbManager.commit(
-            "insert into orders(Full_Name, Email, Phone, City, Street, Apartment, Comments, Delivery_Option, total_quantity, amount_order) VALUES"
-            " ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % (
-                full_name, email, phone, city, address, door, comments, delivery, (session['all_total_quantity']),
-                (session['all_total_price'])))
-
-        return render_template('checkout.html')
+        flash('תודה על קנייתך! מוזמן גם להעיף מבט על מגוון אירועים שלנו!')
+        return render_template('events.html')
