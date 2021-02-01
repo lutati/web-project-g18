@@ -1,6 +1,5 @@
 /*Pin the bar to top*/
-@import "/components/header/static/css/header.css";
-@import "/components/footer/static/css/footer.css";
+
 body {
     background-color: rgb(243, 240, 215);
     direction: rtl;

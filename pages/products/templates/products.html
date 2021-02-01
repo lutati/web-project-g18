@@ -9,23 +9,27 @@
 
 
 {% block page_body_header_add_item %}
-    <!-- <div id="add">
-        <span class="good_add">הפריט נוסף לסל בהצלחה!</span>
-        <span class="to_cart">מעבר לקופה</span>
-        <span class="close_add"> המשך בקניה X</span>
-    </div> -->
+
 {% endblock %}
 
-{#{% block page_body_nav_extra %}#}
-{#    <!-- <a href="/cakes">עוגות</a>#}
-{#    <a href="/product_cake"> > {{cake[0].name}}</a> -->#}
-{#{% endblock %}#}
 
 
 {% block page_body_main_content %}
-
+    <div class="flash">
+  {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul>
+                {% for message in messages %}
+                  {{ message }}
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+    </div>
     <h1 class="title">מוצרי החנות</h1>
+
     <div class="product">
+
         <div class="header">
         </div>
         <div class="product2">
@@ -36,9 +40,9 @@
                     <p>מחיר: 25 ש"ח ליחידה</p>
                     <br><br><br>
                     <p> כמות:</p><br>
-                    <div class="quantity buttons_added">
+                      <div>
                         <input type="number" id="number1" step="1" min="1" max="" name="quantityV" value="1"
-                               title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+                               title="Qty" size="4">
                     </div>
                     <br><br>
                     <input type="submit" name="vradim_25" value="הוסף לעגלה"/>
@@ -59,9 +63,9 @@
                         <option value="טבעוני" name="vegan">טבעוני</option>
                     </select> <br><br>
                     <p> כמות:</p><br>
-                    <div class="quantity buttons_added">
+                      <div>
                         <input type="number" id="number1" step="1" min="1" max="" name="quantityS" value="1"
-                               title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+                               title="Qty" size="4">
                     </div>
                     <br><br>
                     <div class="cart3">
@@ -98,9 +102,9 @@
                         <option name="adds4" value="קוקוס קלוי">קוקוס קלוי</option>
                     </select><br>
                     <p> כמות:</p><br>
-                    <div class="quantity buttons_added">
+                     <div>
                         <input type="number" id="number1" step="1" min="1" max="" name="quantity" value="1"
-                               title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+                               title="Qty" size="4">
                     </div>
                     <br><br>
                     <button id="modalBtn" name="malabi_10" class="payment" type="submit" value="הוסף לעגלה"
@@ -108,18 +112,10 @@
                                                          height="30px"></img>
                         הוסף לעגלה
                     </button>
-                    <div id="simpleModal" class="modal">
-                        <div class="modal-content">
-                            <div class="upper"></div>
-                            <span class="closeBtn" onclick="closeModal()">&times;</span><br>
-                            <p class="upper_modal">אתה עומד לעבור לאתר מאובטח <br> תודה על קנייתך, מליבהו :)</p> <br>
-                            <a href="checkout">
-                                <button id="insideModal"> אישור</button>
-                            </a>
-                        </div>
-                    </div>
+
                 </form>
             </div>
+
         </div>
 
         <div class="footer">
@@ -130,7 +126,7 @@
 {% endblock %}
 
 {% block page_body_js %}
-    <script src="{{ url_for('products.static', filename='js/products.js') }}"></script>
+    <script src="{{ url_for('products.static', filename='js/products1.js') }}"></script>
 {% endblock %}
 
 

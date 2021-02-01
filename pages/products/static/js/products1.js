@@ -1,33 +1,4 @@
-function finishOrder() {
-    // Get the modal
-    var modal = document.getElementById('simpleModal');
-
-    // Get the button that opens the modal
-    //var modalBtn = document.getElementById('modalBtn');
-
-    // Get the <span> element that closes the modal
-    //var closeBtn = document.getElementsByClassName('closeBtn')[0];
-
-    // When the user clicks the button, open the modal
-
-    // modalBtn.addEventListener('click', openModal);
-    // closeBtn.addEventListener('click', closeModal);
-
-
-    //function openModal(){
-    modal.style.display = 'block';
-}
-
-function closeModal() {
-    var modal = document.getElementById('simpleModal');
-
-    modal.style.display = 'none';
-}
-
-//finish order
-
-
-      function malabi_options() {
+function malabi_options() {
           var x = document.getElementById("malabi_options");
           if (x.style.display == "none" || x.style.display == "") {
               x.style.display = "block";

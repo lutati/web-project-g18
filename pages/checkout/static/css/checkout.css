@@ -12,6 +12,10 @@
 #must {
     color: red;
 }
+.pay_total{
+    font-size: 1.5vh;
+    color: wheat;
+}
 
 #payment {
     box-shadow: 0.4vw 1vw rgba(0, 0.3, 0.7, 0.5);

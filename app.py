@@ -24,6 +24,13 @@ from pages.aboutus.aboutus import aboutus
 
 app.register_blueprint(aboutus)
 
+
+## account
+from pages.account.account import account
+
+app.register_blueprint(account)
+
+
 ## cart
 from pages.cart.cart import cart
 

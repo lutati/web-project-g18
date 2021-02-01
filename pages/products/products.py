@@ -1,12 +1,10 @@
-import tkinter
-
+# import tkinter
 from flask import Blueprint, render_template, request, session
+
 from utilities.db.db_manager import dbManager
-from tkinter import messagebox
-# # This code is to hide the main tkinter window
-# root = tkinter.Tk()
-# root.withdraw()
-# products blueprint definition
+from utilities.db.DB_query import DBQuery
+from flask import flash
+
 products = Blueprint('products', __name__, static_folder='static', static_url_path='/products',
                      template_folder='templates')
 
@@ -17,117 +15,115 @@ def index():
     return render_template('products.html')
 
 
-@products.route('/vradim', methods=['GET', 'POST'])
-def products_in_cart():
-    if 'logged_in' not in session:
-        messagebox.showinfo("Un Registered User", "אנא הירשמו תחילה כדי להנות מחוויה אישית :) תודה, מלביהו")
-    if request.method == 'GET':
+def array_merge(first_array, second_array):
+    if isinstance(first_array, list) and isinstance(second_array, list):
+        return first_array + second_array
+    elif isinstance(first_array, dict) and isinstance(second_array, dict):
+        return dict(list(first_array.items()) + list(second_array.items()))
+    elif isinstance(first_array, set) and isinstance(second_array, set):
+        return first_array.union(second_array)
+    return False
 
+
+def products_in_cart(row, new_quantity, item_array, all_total_quantity, all_total_price):
+    if 'cart_array' in session:
+        if str(row[0].Product_ID) in session['cart_array']:
+            for key, value in session['cart_array'].items():
+                if str(row[0].Product_ID) == key:
+                    old_quantity = session['cart_array'][key]['quantity']
+                    total_quantity = int(old_quantity) + int(new_quantity)
+                    session['cart_array'][key]['quantity'] = total_quantity
+                    session['cart_array'][key]['total_price'] = total_quantity * int(
+                        session['cart_array'][key]['price'])
+                    print('this is total price ###########################')
+                    print(session['cart_array'][key]['total_price'])
+                    flash("כמות הפריט נוספה בהתאם לבקשתך!")
+        else:
+            session['cart_array'] = array_merge(session['cart_array'], item_array)
+            flash("הפריט נוסף בהצלחה לסל!")
+        for key, value in session['cart_array'].items():
+            individual_quantity = int(session['cart_array'][key]['quantity'])
+            individual_price = int(session['cart_array'][key]['total_price'])
+            all_total_quantity = all_total_quantity + individual_quantity
+            all_total_price = all_total_price + individual_price
+    else:
+        session['cart_array'] = item_array
+        all_total_quantity = all_total_quantity + int(new_quantity)
+        all_total_price = all_total_price + int(new_quantity) * int(row[0].Price)
+    session['all_total_quantity'] = all_total_quantity
+    session['all_total_price'] = all_total_price
+
+
+@products.route('/vradim', methods=['GET', 'POST'])
+def products_in_orders():
+    if 'logged_in' not in session:
+        flash('שלום אורח! על מנת להזמין אנא הירשם תחילה, תודה')
+        return render_template('products.html')
+    if request.method == 'GET':
         print("bla")
         myproduct_name = "מי ורדים"
-        myproduct_id = dbManager.fetch('select * from products where Product_Name=%s',
-                                       (myproduct_name,))
-        print(myproduct_id[0].Product_ID)
-        myproduct_id_int = myproduct_id[0].Product_ID
-        # price = 25.00
-        cart_id_int = session['cart_number']
+        row = dbManager.fetch('select * from products where Product_Name=%s',
+                              (myproduct_name,))
         new_quantity = request.args.get('quantityV')
-        check_already_incart = dbManager.fetch(
-            'select * from product_in_cart where order_id=%s and product_id=%s',
-            (cart_id_int, myproduct_id_int))
-        print(check_already_incart)
-        if check_already_incart:
-            print("if")
-            update_quantity = dbManager.fetch(
-                'select quantity from product_in_cart where order_id=%s and product_id=%s',
-                (cart_id_int, myproduct_id_int))
-            update_quantity = update_quantity[0].quantity
-            update_quantity = int(update_quantity) + int(new_quantity)
-            affect_rows_cart_sahlav = dbManager.commit(
-                "UPDATE PRODUCT_IN_CART set quantity=%s where order_id=%s and product_id=%s",
-                (update_quantity, cart_id_int, myproduct_id_int))
-        else:
-            print("else")
-
-            affect_rows_cart_sahlav = dbManager.commit(
-                "insert into product_in_cart(order_id, product_id, quantity) VALUES"
-                " ('%s', '%s', '%s')" %
-                (cart_id_int, myproduct_id_int, new_quantity))
-
+        total_price = int(row[0].Price) * int(new_quantity)
+        print(row)
+        item_array = {
+            str(row[0].Product_ID): {'name': row[0].Product_Name, 'id': row[0].Product_ID,
+                                     'price': row[0].Price, 'Dairy': row[0].Dairy, 'Syrup': row[0].Syrup,
+                                     'topping': row[0].Topping, 'quantity': new_quantity, 'total_price': total_price}}
+        all_total_price = 0
+        all_total_quantity = 0
+        session.modified = True
+        products_in_cart(row, new_quantity, item_array, all_total_quantity, all_total_price)
         return render_template('products.html')
 
 
 @products.route('/sahlav', methods=['GET', 'POST'])
 def products_sahlav():
+    if 'logged_in' not in session:
+        flash('שלום אורח! על מנת להזמין אנא הירשם תחילה, תודה')
+        return render_template('products.html')
     if request.method == 'GET':
+        x = DBQuery()
         myproduct_name = "סחלב"
-        # print(request.args.get('type_sahlav'))
         myproduct_type = request.args.get('type_sahlav')
-        myproduct_id = dbManager.fetch('select * from products where Dairy=%s',
-                                       (myproduct_type,))
-        # price = 15
         cart_id_int = session['cart_number']
         print(cart_id_int)
         new_quantity = request.args.get('quantityS')
-        myproduct_id_int = myproduct_id[0].Product_ID
-        check_already_incart = dbManager.fetch(
-            'select * from product_in_cart where order_id=%s and product_id=%s',
-            (cart_id_int, myproduct_id_int))
-        print(check_already_incart)
-        if check_already_incart:
-            print("if")
-            update_quantity = dbManager.fetch(
-                'select quantity from product_in_cart where order_id=%s and product_id=%s',
-                (cart_id_int, myproduct_id_int))
-            update_quantity = update_quantity[0].quantity
-            update_quantity = int(update_quantity) + int(new_quantity)
-            affect_rows_cart_sahlav = dbManager.commit(
-                "UPDATE PRODUCT_IN_CART set quantity=%s where order_id=%s and product_id=%s",
-                (update_quantity, cart_id_int, myproduct_id_int))
-        else:
-            print("else")
-
-            affect_rows_cart_sahlav = dbManager.commit(
-                "insert into product_in_cart(order_id, product_id, quantity) VALUES"
-                " ('%s', '%s', '%s')" %
-                (cart_id_int, myproduct_id_int, new_quantity))
+        row = dbManager.fetch('select * from products where Product_Name=%s and Dairy=%s',
+                              (myproduct_name, myproduct_type))
+        total_price = int(row[0].Price) * int(new_quantity)
+        item_array = {
+            str(row[0].Product_ID): {'name': row[0].Product_Name, 'id': row[0].Product_ID,
+                                     'price': row[0].Price, 'Dairy': row[0].Dairy, 'Syrup': row[0].Syrup,
+                                     'topping': row[0].Topping, 'quantity': new_quantity, 'total_price': total_price}}
+        all_total_price = 0
+        all_total_quantity = 0
+        session.modified = True
+        products_in_cart(row, new_quantity, item_array, all_total_quantity, all_total_price)
         return render_template('products.html')
 
 
 @products.route('/malabi', methods=['GET', 'POST'])
 def products_malabi():
+    if 'logged_in' not in session:
+        flash('שלום אורח! על מנת להזמין אנא הירשם תחילה, תודה')
+        return render_template('products.html')
     if request.method == 'GET':
-        myproduct_name = "מלבי"
         myproduct_type = request.args.get('type_malabi')
         malabi_syrup = request.args.get('syrup')
         malabi_topping = request.args.get('toppings')
-        malabi_product_id = dbManager.fetch('select * from products where Dairy=%s and Syrup=%s and Topping=%s',
-                                            (myproduct_type, malabi_syrup, malabi_topping))
-        print(malabi_product_id)
-        # price = 10
-        malabi_id_int = malabi_product_id[0].Product_ID
-        cart_id_int = session['cart_number']
+
         new_quantity = request.args.get('quantity')
-        check_already_incart = dbManager.fetch(
-            'select * from product_in_cart where order_id=%s and product_id=%s',
-            (cart_id_int, malabi_id_int))
-        print(check_already_incart)
-        if check_already_incart:
-            print("if")
-            update_quantity = dbManager.fetch(
-                'select quantity from product_in_cart where order_id=%s and product_id=%s',
-                (cart_id_int, malabi_id_int))
-            update_quantity = update_quantity[0].quantity
-            update_quantity = int(update_quantity) + int(new_quantity)
-            affect_rows_cart_sahlav = dbManager.commit(
-                "UPDATE PRODUCT_IN_CART set quantity=%s where order_id=%s and product_id=%s",
-                (update_quantity, cart_id_int, malabi_id_int))
-        else:
-            print("else")
-
-            affect_rows_cart_sahlav = dbManager.commit(
-                "insert into product_in_cart(order_id, product_id, quantity) VALUES"
-                " ('%s', '%s', '%s')" %
-                (cart_id_int, malabi_id_int, new_quantity))
-
+        row = dbManager.fetch('select * from products where Dairy=%s and Syrup=%s and Topping=%s',
+                              (myproduct_type, malabi_syrup, malabi_topping))
+        total_price = int(row[0].Price) * int(new_quantity)
+        item_array = {
+            str(row[0].Product_ID): {'name': row[0].Product_Name, 'id': row[0].Product_ID,
+                                     'price': row[0].Price, 'Dairy': row[0].Dairy, 'Syrup': row[0].Syrup,
+                                     'topping': row[0].Topping, 'quantity': new_quantity, 'total_price': total_price}}
+        session.modified = True
+        all_total_price = 0
+        all_total_quantity = 0
+        products_in_cart(row, new_quantity, item_array, all_total_quantity, all_total_price)
         return render_template('products.html')

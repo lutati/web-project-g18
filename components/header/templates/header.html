@@ -19,6 +19,8 @@
             {% if session.get('username') %}
                 <h3 class="hello_user">  שלום   {{ session.get('username') }}! </h3>
                 <a class="logout" href="/logout">התנתק</a>
+                <a href="/account"><img src="header/logos/account.png" alt="account" class="icon" style="width: 30px"
+                                        height="30px"></a>
             {% else %}
                 <h3 class="hello_user">שלום אורח! </h3>
             {% endif %}

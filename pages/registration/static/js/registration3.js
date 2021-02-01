@@ -35,6 +35,4 @@
 
     alert("הרישום בוצע בהצלחה");
      document.getElementById("btn").value="הרישום בוצע";
-     return false;
-  
   }

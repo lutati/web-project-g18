@@ -1,0 +1,17 @@
+.usersDetails{
+    border-left: white;
+    text-shadow: #333333;color: brown;
+
+}
+
+.changes{
+        text-shadow: #333333;color: green;
+}
+.delete{
+        text-shadow: #333333;color: darkred;
+}
+
+.deleteF{
+           display: inline;
+
+}

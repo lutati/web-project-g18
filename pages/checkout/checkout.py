@@ -9,6 +9,8 @@ checkout = Blueprint('checkout', __name__, static_folder='static', static_url_pa
 # Routes
 @checkout.route('/checkout')
 def index():
+    id = session['cart_number']
+
     return render_template('checkout.html')
 
 
@@ -28,9 +30,12 @@ def order_customer():
         card_number = request.form['card_num']
         month = request.form['month']
         cvv = request.form['CVV']
+        print(delivery)
+
         affect_rows = dbManager.commit(
-            "insert into orders(Full_Name, Email, Phone, City, Street, Apartment, Comments, Delivery_Option) VALUES"
-            " ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % (
-                full_name, email, phone, city, address, door, comments, delivery))
+            "insert into orders(Full_Name, Email, Phone, City, Street, Apartment, Comments, Delivery_Option, total_quantity, amount_order) VALUES"
+            " ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % (
+                full_name, email, phone, city, address, door, comments, delivery, (session['all_total_quantity']),
+                (session['all_total_price'])))
 
         return render_template('checkout.html')

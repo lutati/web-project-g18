@@ -64,7 +64,15 @@
     margin-right: 20%;
     margin-top: 5%;
 }
+#id.number1{
+    width:2vh;
+    height: 2vh;
+}
 
+.flashes{
+    margin:auto;
+    color: #3A7734;
+}
 .rose_btn:hover,
 .malabi_btn:hover,
 .sahlav_btn:hover {
