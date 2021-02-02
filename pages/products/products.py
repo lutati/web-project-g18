@@ -35,8 +35,6 @@ def products_in_cart(row, new_quantity, item_array, all_total_quantity, all_tota
                     session['cart_array'][key]['quantity'] = total_quantity
                     session['cart_array'][key]['total_price'] = total_quantity * int(
                         session['cart_array'][key]['price'])
-                    print('this is total price ###########################')
-                    print(session['cart_array'][key]['total_price'])
                     flash("כמות הפריט נוספה בהתאם לבקשתך!")
         else:
             session['cart_array'] = array_merge(session['cart_array'], item_array)
@@ -47,6 +45,7 @@ def products_in_cart(row, new_quantity, item_array, all_total_quantity, all_tota
             all_total_quantity = all_total_quantity + individual_quantity
             all_total_price = all_total_price + individual_price
     else:
+        flash("הפריט נוסף בהצלחה לסל!")
         session['cart_array'] = item_array
         all_total_quantity = all_total_quantity + int(new_quantity)
         all_total_price = all_total_price + int(new_quantity) * int(row[0].Price)

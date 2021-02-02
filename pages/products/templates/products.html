@@ -37,11 +37,10 @@
             <button class="rose_btn" name="product2" onclick="rose_options();">מי ורדים</button>
             <div class="rose_options" ; id="rose_options">
                 <form action="/vradim" method="get" id="rose_product">
-                    <p>מחיר: 25 ש"ח ליחידה</p>
-                    <br><br><br>
-                    <p> כמות:</p><br>
+                    <h4 class="product_details">מחיר: 25 ש"ח ליחידה</h4>
+                    <h4 class="product_details"> כמות:</h4>
                       <div>
-                        <input type="number" id="number1" step="1" min="1" max="" name="quantityV" value="1"
+                        <input class="quantity" type="number" id="number1" step="1" min="1" max="" name="quantityV" value="1"
                                title="Qty" size="4">
                     </div>
                     <br><br>
@@ -56,15 +55,15 @@
             <button class="sahlav_btn" onclick="sahlav_options();">סחלב</button>
             <form action="/sahlav" method="GET" id="sahlav_product">
                 <div class="sahlav_options" id="sahlav_options">
-                    <p>מחיר: 15 ש"ח ליחידה</p>
-                    <select class="kind" name="type_sahlav" required>
+                    <h4 class="product_details">מחיר: 15 ש"ח ליחידה</h4>
+                    <select class="select_box" name="type_sahlav" required>
                         <option value="סוג" select hidden>סוג</option>
                         <option value="חלבי" name="milk">חלבי</option>
                         <option value="טבעוני" name="vegan">טבעוני</option>
-                    </select> <br><br>
-                    <p> כמות:</p><br>
+                    </select>
+                    <h4 class="product_details"> כמות:</h4>
                       <div>
-                        <input type="number" id="number1" step="1" min="1" max="" name="quantityS" value="1"
+                        <input class="quantity" type="number" id="number1" step="1" min="1" max="" name="quantityS" value="1"
                                title="Qty" size="4">
                     </div>
                     <br><br>
@@ -79,13 +78,13 @@
             <button class="malabi_btn" onclick="malabi_options();">מלבי</button>
             <div class="malabi_options" ; id="malabi_options">
                 <form action="/malabi" method="get" id="malabi_product">
-                    <p>מחיר: 10 ש"ח ליחידה</p>
-                    <select name="type_malabi" required>
+                    <h4 class="product_details">מחיר: 10 ש"ח ליחידה</h4>
+                    <select class="select_box" name="type_malabi" required>
                         <option select hidden>סוג</option>
                         <option value="חלבי">חלבי</option>
                         <option value="טבעוני">טבעוני</option>
                     </select> <br><br>
-                    <select name="syrup" required>
+                    <select class="select_box" name="syrup" required>
                         <option value="סירופ" select hidden>סירופ</option>
                         <option value="מי ורדים">מי ורדים</option>
                         <option value="אספרסו"> אספרסו</option>
@@ -94,22 +93,21 @@
                         <option value="פסיפלורה">פסיפלורה</option>
                         <option value="פיסטוק">פיסטוק</option>
                     </select><br><br>
-                    <select id="topping" name="toppings" value="adds" required><br>
+                    <select class="select_box" id="topping" name="toppings" value="adds" required><br>
                         <option name="adds1" value="תוספות" select hidden>תוספת</option>
                         <option name="adds1" value="קדאיף">שערות קדאיף</option>
                         <option name="adds2" value="בוטנים מלוחים">בוטנים מלוחים</option>
                         <option name="adds3" value="בוטנים מסוכרים">בוטנים מסוכרים</option>
                         <option name="adds4" value="קוקוס קלוי">קוקוס קלוי</option>
                     </select><br>
-                    <p> כמות:</p><br>
+                    <h5 class="product_details"> כמות:</h5>
                      <div>
-                        <input type="number" id="number1" step="1" min="1" max="" name="quantity" value="1"
+                        <input class="quantity" type="number" id="number1" step="1" min="1" max="" name="quantity" value="1"
                                title="Qty" size="4">
                     </div>
-                    <br><br>
+                    <br>
                     <button id="modalBtn" name="malabi_10" class="payment" type="submit" value="הוסף לעגלה"
-                            onclick="finishOrder()"><img id="cart" src="cart.png" width="30px"
-                                                         height="30px"></img>
+                            onclick="finishOrder()">
                         הוסף לעגלה
                     </button>
 

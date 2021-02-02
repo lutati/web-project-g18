@@ -8,16 +8,7 @@ cart = Blueprint('cart', __name__, static_folder='static', static_url_path='/car
 # Routes
 @cart.route('/cart')
 def index():
-    # print(session['logged_in'])
-    # if 'cart_number' in session:
-    #     id = session['cart_number']
 
-        # sum_product = dbManager.fetch('select sum(')
-        # cart_data = dbManager.fetch(
-        #     'select order_id, c.product_id, p.product_name, price, p.Dairy, p.Syrup, p.Topping, quantity from products_in_order as c join products as p on c.product_id=p.Product_ID where c.order_id=%s',
-        #     (id,))
-        # if cart_data:
-        #     return render_template('cart.html', cart=cart_data, item=session['cart_array'])
     if 'logged_in' in session:
         if 'cart_array' in session:
             return render_template('cart.html', item=session['cart_array'])

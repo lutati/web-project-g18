@@ -27,14 +27,13 @@ def order_customer():
         phone = request.form['tel']
         comments = request.form['comments']
         delivery = request.form['delivery']
-        fname_card = request.form['fname_card']
-        id_customer = request.form['id_num']
         card_number = request.form['card_num']
-        month = request.form['month']
         cvv = request.form['CVV']
         print(delivery)
         query = DBQuery()
-        affect_row = query.set_new_order(full_name, email, phone, city, address, door, comments, delivery,
+        affect_row = query.set_new_order(full_name, email, phone, city, address, door, comments, delivery, card_number,
+                                         cvv,
+                                         session['email_user'],
                                          (session['all_total_quantity']),
                                          (session['all_total_price']))
 

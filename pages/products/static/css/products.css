@@ -95,10 +95,18 @@ p {
     display: none;
 }
 
+.product_details {
+    text-align: right;
+}
+
+select.select_box {
+    margin-right: 0;
+}
+
 /* -- quantity button -- */
 
 .quantity {
-    display: inline-block;
+    width: 20%;
 }
 
 .quantity .input-text.qty {
