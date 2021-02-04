@@ -10,7 +10,7 @@ account = Blueprint('account', __name__, static_folder='static', static_url_path
 def index():
     if 'logged_in' in session:
         query = DBQuery()
-        user_details = query.get_user_details(session['email_user'])
+        user_details = query.get_user(session['email_user'])
         print(user_details)
     return render_template('/account.html', account=user_details)
 
@@ -41,7 +41,7 @@ def delete_details():
     if request.method == 'POST':
         id = session['email_user']
         query = DBQuery()
-        delete_user = query.delete_user_orders(id)
+        delete_user = query.delete_user(id)
         delete_user_customer = query.delete_user_customer(id)
         flash('עצובים להיפרד, לא מאוחר להירשם שוב :)')
         session.pop('logged_in', None)

@@ -35,5 +35,3 @@ def delete_item():
     session['all_total_quantity'] = all_total_quantity
     session['all_total_price'] = all_total_price
     return redirect(url_for('cart.index'))
-
-

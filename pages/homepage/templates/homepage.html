@@ -8,12 +8,13 @@
 
 
 {% block page_body_main_content %}
-   <main>
+    <main>
         <div class="container">
-            <img src="{{ url_for('homepage.static', filename='css/photos/background1.png') }}" class="background">
-            <img src="{{ url_for('homepage.static', filename='css/logos/logo.png') }}" class="welcomeLogo">
+            <img src="{{ url_for('homepage.static', filename='media/background1.png') }}" class="background">
+            <img src="{{ url_for('homepage.static', filename='media/logo.png') }}" class="welcomeLogo">
             <p class="welcomePar">
-                במלביהו תוכלו להנות ממלבי ביתי, עם מגוון סירופים ותוספות ייחודים ובעשרה שקלים בלבד. <br> יש לנו גם טבעוני!
+                במלביהו תוכלו להנות ממלבי ביתי, עם מגוון סירופים ותוספות ייחודים ובעשרה שקלים בלבד. <br> יש לנו גם
+                טבעוני!
                 <br> בירה קרה, פינות ישיבה ומוזיקה טובה!<br>
             </p>
         </div>
@@ -24,42 +25,46 @@
         <!--Recommended Products section-->
         <h1>מומלצים</h1>
         <div class="container1">
-            <img src="{{ url_for('homepage.static', filename='css/photos/image1.jpg') }}" alt="image1" class="reccomend" style="width:100%">
+            <img src="{{ url_for('homepage.static', filename='media/image1.jpg') }}" alt="image1" class="reccomend"
+                 style="width:100%">
             <div class="middle">
                 <div class="descrip">סחלב חם</div>
             </div>
         </div>
         <div class="container1">
-            <img src="{{ url_for('homepage.static', filename='css/photos/image2.jpg') }}" alt="image2" class="reccomend" style="width:100%">
+            <img src="{{ url_for('homepage.static', filename='media/image2.jpg') }}" alt="image2" class="reccomend"
+                 style="width:100%">
             <div class="middle">
                 <div class="descrip">מלבי פיסטוק</div>
             </div>
         </div>
         <div class="container1">
-            <img src="{{ url_for('homepage.static', filename='css/photos/image3.jpg') }}" alt="image3" class="reccomend" style="width:100%">
+            <img src="{{ url_for('homepage.static', filename='media/image3.jpg') }}" alt="image3" class="reccomend"
+                 style="width:100%">
             <div class="middle">
                 <div class="descrip">מלבי נוטלה</div>
             </div>
         </div>
         <div class="container1">
-            <img src="{{ url_for('homepage.static', filename='css/photos/image4.jpg') }}" alt="image4" class="reccomend" style="width:100%">
+            <img src="{{ url_for('homepage.static', filename='media/image4.jpg') }}" alt="image4" class="reccomend"
+                 style="width:100%">
             <div class="middle">
                 <div class="descrip">מלבי פסיפלורה</div>
             </div>
         </div>
         <div class="container1">
-            <img src="{{ url_for('homepage.static', filename='css/photos/image5.jpg') }}" alt="image5" class="reccomend" style="width:100%">
+            <img src="{{ url_for('homepage.static', filename='media/image5.jpg') }}" alt="image5" class="reccomend"
+                 style="width:100%">
             <div class="middle">
                 <div class="descrip">מלבי פירות יער</div>
             </div>
         </div>
 
-        <a class="forAllProducts" href="products/products.html">לכל המוצרים></a><br><br><br>
-        <div class="line"></div><br><br>
+        <a class="forAllProducts" href="/products">לכל המוצרים></a><br><br><br>
+        <div class="line"></div>
+        <br><br>
     </main>
 
 {% endblock %}
-
-
 
 

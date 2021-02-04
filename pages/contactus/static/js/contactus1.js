@@ -29,6 +29,5 @@
    
     alert("ההודעה נשלחה בהצלחה");
      document.getElementById("btn").value="ההודעה נשלחה";
-     return false;
-  
+
   }

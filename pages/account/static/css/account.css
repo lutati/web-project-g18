@@ -1,7 +1,11 @@
+#my_account{
+    font-size: 4vh;
+    color: rgb(80, 13, 50);
+}
+
 .usersDetails{
     border-left: white;
     text-shadow: #333333;color: brown;
-
 }
 
 .changes{

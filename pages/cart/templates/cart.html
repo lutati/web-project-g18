@@ -8,20 +8,6 @@
 
 
 
-{% block page_body_header_add_item %}
-    <!-- <div id="add">
-        <span class="good_add">הפריט נוסף לסל בהצלחה!</span>
-        <span class="to_cart">מעבר לקופה</span>
-        <span class="close_add"> המשך בקניה X</span>
-    </div> -->
-{% endblock %}
-
-{#{% block page_body_nav_extra %}#}
-{#    <!-- <a href="/cakes">עוגות</a>#}
-{#    <a href="/product_cake"> > {{cake[0].name}}</a> -->#}
-{#{% endblock %}#}
-
-
 {% block page_body_main_content %}
     <body onload="calculate_per_row()">
     <h1 class="header_items">סל הקניות שלי</h1>
@@ -43,90 +29,89 @@
 
                     {% for key, val in item.items() %}
 
-                            <tr id="row">
-                                <td> {{ item[key]['price'] }} </td>
-                                <td>
-                                    {{ item[key]['quantity'] }}
-                                </td>
-                                <td>₪{{ item[key]['total_price'] }}</td>
-                                <td>{{ item[key]['name'] }}</td>
-                                <td>
+                        <tr id="row">
+                            <td> {{ item[key]['price'] }} </td>
+                            <td>
+                                {{ item[key]['quantity'] }}
+                            </td>
+                            <td>₪{{ item[key]['total_price'] }}</td>
+                            <td>{{ item[key]['name'] }}</td>
+                            <td>
                                 {% if item[key]['Dairy'] %}
-                                {{ item[key]['Dairy'] }}{% endif %}
-                                    {% if item[key]['Syrup'] %}
+                                    {{ item[key]['Dairy'] }}{% endif %}
+                                {% if item[key]['Syrup'] %}
                                     {{ item[key]['Syrup'] }}{% endif %}
-                                    {% if item[key]['topping'] %}
+                                {% if item[key]['topping'] %}
                                     {{ item[key]['topping'] }} {% endif %} </td>
 
-                                <td>
-                                    {% if item[key]['id'] == 1000 %}
-                                    <img class="malabi" src="{{ url_for('cart.static', filename='images/vradim.jpg') }}"></img>
-                                    {% elif item[key]['id'] <1003 %}
-                                    <img class="malabi" src="{{ url_for('cart.static', filename='images/sahlav.jpg') }}"></img>
-                                    {% else %}
-                                    <img class="malabi" src="{{ url_for('cart.static', filename='images/malabi2.jpg') }}"></img>
-                                    {% endif %}
-                                </td>
-                                <td>
-                                    <form id="delete" method="post" action="/delete_item">
-                                        <input type="hidden" name="hidden_id" value="{{ item[key]['id'] }}">
-                                        <button name="remove" type="submit">
-                                            <img class="remove" src="{{ url_for('cart.static', filename='images/remove.png') }}"
-                                                 alt="הסר"></button>
-                                    </form>
-                                </td>
-                            </tr>
+                            <td>
+                                {% if item[key]['id'] == 1000 %}
+                                    <img class="malabi"
+                                         src="{{ url_for('cart.static', filename='media/vradim.jpg') }}"></img>
+                                {% elif item[key]['id'] <1003 %}
+                                    <img class="malabi"
+                                         src="{{ url_for('cart.static', filename='media/sahlav.jpg') }}"></img>
+                                {% else %}
+                                    <img class="malabi"
+                                         src="{{ url_for('cart.static', filename='media/malabi2.jpg') }}"></img>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <form id="delete" method="post" action="/delete_item">
+                                    <input type="hidden" name="hidden_id" value="{{ item[key]['id'] }}">
+                                    <button name="remove" type="submit">
+                                        <img class="remove"
+                                             src="{{ url_for('cart.static', filename='media/remove.png') }}"
+                                             alt="הסר"></button>
+                                </form>
+                            </td>
+                        </tr>
 
                     {% endfor %}
                 </table>
                 </div>
                 <div class="things">הנחיות מיוחדות
-                 <textarea class="special_things">
+                    <textarea class="special_things">
                  </textarea></div>
                 <br>
-                <br>
-                <h3> סך פריטים בהזמנה {{ session.get('all_total_quantity') }}</h3>
-                <h2> סך לתשלום  {{ session.get('all_total_price') }}</h2>
+                <div class="total_amount">
+                    <h5> סך פריטים בהזמנה: {{ session.get('all_total_quantity') }}</h5>
+                    <h5> סך הכל לתשלום {{ session.get('all_total_price') }} ש"ח</h5>
+                </div>
 
-                <button id="modalBtn" class="payment" type="submit" value="תשלום" action="/payment_item" onclick="finishOrder()"><img id="cart" src="cart.png"width="30px"
-                                                                                                               height="30px"></img>
+
+                <button id="modalBtn" class="payment" type="submit" value="תשלום" action="/payment_item"
+                        onclick="finishOrder()">
                     מעבר לביצוע תשלום
                 </button>
                 <div id="simpleModal" class="modal">
-                    <div class="modal-content">
-                        <div class="upper"></div>
-                        <span class="closeBtn" onclick=" closeModal()">&times;</span><br>
-                        <p class="upper_modal">אתה עומד לעבור לאתר מאובטח <br> תודה על קנייתך, מליבהו :)</p> <br>
-                        <a href="checkout">
-                            <button id="insideModal"> אישור</button>
-                        </a>
-                    </div>
+                <div class="modal-content">
+                    <div class="upper"></div>
+                    <span class="closeBtn" onclick=" closeModal()">&times;</span><br>
+                    <p class="upper_modal">אתה עומד לעבור לאתר מאובטח <br> תודה על קנייתך, מליבהו :)</p> <br>
+                    <a href="checkout">
+                        <button id="insideModal"> אישור</button>
+                    </a>
+                </div>
             {% else: %}
-                 <div class="header_items">
-                <h2>    {{ session.get('username') }} היי <br> עוד לא הוספת פריטים לעגלה! </h2>
-                    </div>
+                <div class="header_items">
+                    <h2> היי {{ session.get('username') }},<br> עוד לא הוספת פריטים לעגלה! </h2>
+                </div>
             {% endif %}
         {% else: %}
-                    <div class="header_items">
+            <div class="header_items">
                 <h2> עגלה ריקה ממוצרים, למה אתה מחכה? להירשם, ולהעמיס! :) </h2>
-                    </div>
+            </div>
         {% endif %}
 
 
-
-
-
-    </div>
+        </div>
     </body>
 
-    <br>
-    <br>
-    <br>
-    <br>
+    <br><br><br><br>
+
 {% endblock %}
 
 {% block page_body_js %}
     <script src="{{ url_for('cart.static', filename='js/cart.js') }}"></script>
 {% endblock %}
-
-

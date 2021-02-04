@@ -3,7 +3,7 @@ from utilities.db.db_manager import dbManager, DBManager
 
 class DBQuery:
 
-    def __init__(self):
+    def _init_(self):
         """
         Init dbmanager
         """
@@ -35,7 +35,8 @@ class DBQuery:
 
     def get_max_order(self):
         self.db = DBManager()
-        row = self.db.fetch('select (max(order_id)+1) as cartid from orders')
+        row = self.db.fetch('select (max(order_id)) as cartid from orders')
+        row = row[0]
         return row
 
     def insert_contact_us(self, fname: str, email: str, phone: str, text_area: str):
@@ -57,8 +58,10 @@ class DBQuery:
         self.db = DBManager()
         row = self.db.commit(
             "insert into orders(Full_Name, Email, Phone, City, Street, Apartment, Comments, Delivery_Option,  Credit_Card, cvv, made_by, total_quantity, amount_order) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" %
-            (fname, email, phone, city, address, door, comments, delivery,  credit_card, cvv, made_by, all_total_quantity,
-             all_total_price))
+            (
+                fname, email, phone, city, address, door, comments, delivery, credit_card, cvv, made_by,
+                all_total_quantity,
+                all_total_price))
         return row
 
     def update_customer(self, fname: str, lname: str, birthdate, phone, id):
@@ -86,12 +89,12 @@ class DBQuery:
         row = self.db.commit('delete from customers where Email=%s', (id,))
         return row
 
-    def delete_user_orders(self, id):
+    def insert_into_products_orders(self, cart_table, max_order):
         self.db = DBManager()
-        row = self.db.commit('delete from orders where Email=%s', (id,))
-        return row
-
-    def get_user_details(self, email):
-        self.db = DBManager()
-        row = self.db.fetch('SELECT * from customers where Email=%s', email, )
+        for key, value in cart_table.items():
+            product_id = cart_table[key]['id']
+            quantity = cart_table[key]['quantity']
+            row = self.db.commit(
+                "insert into products_in_order(order_id, product_id, quantity) VALUES ('%s', '%s', '%s')" % (
+                    max_order, product_id, quantity))
         return row

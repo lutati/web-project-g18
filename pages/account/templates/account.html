@@ -6,43 +6,41 @@
     <link rel="stylesheet" href="{{ url_for('account.static', filename='css/account.css') }}"/>
 {% endblock %}
 
-{%  block page_body_header_add_item %}
-
-{% endblock %}
 
 {% block page_body_main_content %}
-    <section> <h1> החשבון שלי</h1>
-    היי
-    {% if 'logged_in' in session %}
-        {{ session.get('username') }}!
-    {% endif %}
-    כאן מרוכזים כל פרטי החשבון שלך: במידה ותרצה לעדכן או להסיר את עצמך ממשתמשי האתר, תוכל לעשות זאת כעת
+    <section><h1 id="my_account"> החשבון שלי</h1>
+        היי
+        {% if 'logged_in' in session %}
+            {{ session.get('username') }}!
+        {% endif %}
+        כאן מרוכזים כל פרטי החשבון שלך: במידה ותרצה לעדכן או להסיר את עצמך ממשתמשי האתר, תוכל לעשות זאת כעת
     </section>
 
     <section>
 
     </section>
 
-     {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages() %}
 
-              {% if messages %}
-                  <div class="changes">
+        {% if messages %}
+            <div class="changes">
                 <h5>
-                {% for message in messages %}
-                  {{ message }}
-                {% endfor %}
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
                 </h5>
-                  </div>
-              {% endif %}
-            {% endwith %}
+            </div>
+        {% endif %}
+    {% endwith %}
     <section class="half">
         <section>
             <h3> פרטי משתמש</h3><br>
 
-           <label class="usersDetails">שם פרטי ומשפחה: </label> {{ session.get('username')}} {{ session.get('last_name')}}  <br>
-            <label class="usersDetails">טלפון: </label> {{ session.get('phone') }} <br>
-            <label class="usersDetails">תאריך לידה: </label>  {{ session.get('birth_date') }}  <br>
-            <label class="usersDetails">מין: </label>  {{ session.get('gender') }}
+            <label class="usersDetails">שם פרטי
+                ומשפחה: </label> {{ session.get('username') }} {{ session.get('last_name') }}<br><br>
+            <label class="usersDetails">טלפון: </label> {{ session.get('phone') }} <br><br>
+            <label class="usersDetails">תאריך לידה: </label> {{ session.get('birth_date') }}<br><br>
+            <label class="usersDetails">מין: </label> {{ session.get('gender') }}
             <br><br>
             <button onclick="editing()" class="press">עריכת פרטי משמש</button>
 
@@ -52,32 +50,32 @@
         </section>
     </section>
 
-     <section id="deleteD">
-        <h4 class="delete"> האם אתה בטוח שברצונך להסיר רישום מהאתר?   </h4>
-         <form class="deleteF" id="deleteD" method="post" action="/delete_details">
-             <button class="press" type="submit" name="yes">כן</button>
-         </form>
-         <form id="deleteD" class="deleteF" method="post" action="/no_delete_details">
-             <button class="press" type="submit" name="no">לא, התחרטתי </button>
-         </form>
-     </section>
+    <section id="deleteD">
+        <h4 class="delete"> האם אתה בטוח שברצונך להסיר רישום מהאתר? </h4>
+        <form class="deleteF" id="deleteD" method="post" action="/delete_details">
+            <button class="press" type="submit" name="yes">כן</button>
+        </form>
+        <form id="deleteD" class="deleteF" method="post" action="/no_delete_details">
+            <button class="press" type="submit" name="no">לא, התחרטתי</button>
+        </form>
+    </section>
     <section id="editD">
-        <h3> </h3>
-          <form id="edit" method="post" action="/update_details" onsubmit="save()">
-                <label for="FirstName">שם פרטי:</label>
-                <input class="edit" type="text" id="FirstName" name="FirstName" required><br>
-                <label for="LastName">שם משפחה:</label>
-                <input class="edit" type="text" id="LastName" name="LastName" required><br>
-                <label for="BD">תאריך לידה:</label>
-                <input class="edit" type="date" id="BD" name="BD" required><br>
-                <label for="phone">מספר טלפון:</label>
-                <input class="box-size" type="text" name= "phone" pattern="[0-9]{10}" required>
+        <h3></h3>
+        <form id="edit" method="post" action="/update_details" onsubmit="save()">
+            <label for="FirstName">שם פרטי:</label>
+            <input class="edit" type="text" id="FirstName" name="FirstName" required><br><br>
+            <label for="LastName">שם משפחה:</label>
+            <input class="edit" type="text" id="LastName" name="LastName" required><br><br>
+            <label for="BD">תאריך לידה:</label>
+            <input class="edit" type="date" id="BD" name="BD" required><br><br>
+            <label for="phone">מספר טלפון:</label>
+            <input class="box-size" type="text" name="phone" pattern="[0-9]{10}" required>
 
-                <button class="press" type="submit">שמור</button>
-            </form>
+            <button class="press" type="submit">שמור</button>
+        </form>
         </form>
 
-    </section>
+    </section><br><br><br><br><br><br>
 
 {% endblock %}
 

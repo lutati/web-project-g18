@@ -8,36 +8,21 @@
 
 
 
-{%  block page_body_header_add_item %}
-    <!-- <div id="add">
-        <span class="good_add">הפריט נוסף לסל בהצלחה!</span>
-        <span class="to_cart">מעבר לקופה</span>
-        <span class="close_add"> המשך בקניה X</span>
-    </div> -->
-{% endblock %}
-
-{#{% block page_body_nav_extra %}#}
-{#    <!-- <a href="/cakes">עוגות</a>#}
-{#    <a href="/product_cake"> > {{cake[0].name}}</a> -->#}
-{#{% endblock %}#}
-
-
 {% block page_body_main_content %}
 
     <!--login box-->
-    <span class="big-circle"></span>
     <div class="loginbox">
-        <img src="{{ url_for('login.static', filename='css/media/avatar.png') }}"  class="avatar">
+        <img src="{{ url_for('login.static', filename='media/avatar.png') }}" class="avatar">
         <h1 class="loginH1">התחברות</h1>
-         {% with messages = get_flashed_messages() %}
-              {% if messages %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
                 <ul class=flashes>
-                {% for message in messages %}
-                  {{ message }}
-                {% endfor %}
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
                 </ul>
-              {% endif %}
-            {% endwith %}
+            {% endif %}
+        {% endwith %}
         <div class=error id="error_message"></div>
 
         <form onsubmit="return validate();" action="/login" method="POST">

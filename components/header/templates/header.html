@@ -7,7 +7,7 @@
 <header>
         <nav>
 
-            <a href="/"><img src="header/logos/logo.png" alt="logo" class="logoBar"></a>
+            <a href="/"><img src="header/media/logo.png" alt="logo" class="logoBar"></a>
             <ul id="links">
                 <li><a href="/" class="homepage">דף הבית</a></li>
                 <li><a href="/products" class="productspage">מוצרים</a></li>
@@ -19,15 +19,14 @@
             {% if session.get('username') %}
                 <h3 class="hello_user">  שלום   {{ session.get('username') }}! </h3>
                 <a class="logout" href="/logout">התנתק</a>
-                <a href="/account"><img src="header/logos/account.png" alt="account" class="icon" style="width: 30px"
-                                        height="30px"></a>
+                <a href="/account"><img src="header/media/account.png" alt="account" id="account_img"></a>
             {% else %}
                 <h3 class="hello_user">שלום אורח! </h3>
             {% endif %}
             <div class="medialogos">
-                <a href="/cart"><img src="header/logos/cart.png" alt="cart" class="icon"></a>
-                <a href="https://www.facebook.com/malabiyahu"><img src="header/logos/facebook.png" alt="facebook" class="icon"></a>
-                <a href="https://www.instagram.com/malabiyahu/"><img src="header/logos/instagram.png" alt="instagram" class="icon"></a>
+                <a href="/cart"><img src="header/media/cart.png" alt="cart" class="icon"></a>
+                <a href="https://www.facebook.com/malabiyahu"><img src="header/media/facebook.png" alt="facebook" class="icon"></a>
+                <a href="https://www.instagram.com/malabiyahu/"><img src="header/media/instagram.png" alt="instagram" class="icon"></a>
             </div>
 
         </nav>

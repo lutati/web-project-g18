@@ -7,9 +7,6 @@
     text-align: center;
     text-transform: uppercase;
     text-decoration: darkgray;
-    position: sticky;
-    display: inline-block;
-    margin-right: 43%;
 }
 
 #table_shopping {
@@ -54,7 +51,7 @@
     text-align: center;
     border-color: white;
     outline: none;
-    height: 2.5vw;
+    height: 3vw;
     background: linear-gradient(90deg, rgb(238, 214, 227), rgb(80, 13, 50));
     color: #fff;
     border-radius: 2vw;
@@ -224,4 +221,9 @@
 .quantity.buttons_added .minus:focus,
 .quantity.buttons_added .plus:focus {
     outline: none;
+}
+
+/*Total fields*/
+.total_amount{
+    text-align: center;
 }

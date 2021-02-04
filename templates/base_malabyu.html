@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ page_lang|default("en", true) }}">
+<html lang="{{ page_lang|default("he", true) }}">
 <head>
     {% block page_head %}
         {# Title #}
-        <title>{{ page_head_title_author|default('Malabyu', true) }} | {{ page_head_title|default('Flask skeleton project', true) }}</title>
+        <title>{{ page_head_title_author|default('Malabyu', true) }}
+            | {{ page_head_title|default('Flask skeleton project', true) }}</title>
 
         {# Meta tags #}
         {% block page_head_meta %}
@@ -15,13 +16,13 @@
         {% endblock %}
 
         {# favicon #}
-        <link rel="icon" href="{{ url_for('static', filename='media/img/favicon/logo.png') }}"/>
+        <link rel="icon" href="{{ url_for('static', filename='media/logo.png') }}"/>
 
         {# Base #}
         <base href="/"/>
 
         {# CSS #}
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css')}}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}"/>
         {% block page_head_css %}{% endblock %}
     {% endblock %}
 
@@ -33,7 +34,7 @@
     {% block page_body_header %}
         <header>
             {% include 'header.html' %}
-            {%  block page_body_header_add_item %}
+            {% block page_body_header_add_item %}
             {% endblock %}
         </header>
     {% endblock %}
@@ -43,8 +44,7 @@
         <main class="back">
             <br>
             <nav class="path">
-{#                <a href="/nitzhome"><img src="{{ url_for('static', filename='media/img/images/Small_home.png') }}" alt="דף-הבית" class="icon">  </a>#}
-{#                <a href="/nitzhome">עמוד הבית</a> >#}
+
                 {% block page_body_nav_extra %}{% endblock %}
             </nav>
 
@@ -63,5 +63,6 @@
 
 {# JS #}
 {% block page_body_js %}{% endblock %}
+
 </body>
 </html>

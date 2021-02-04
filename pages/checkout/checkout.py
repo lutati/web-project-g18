@@ -11,8 +11,6 @@ checkout = Blueprint('checkout', __name__, static_folder='static', static_url_pa
 # Routes
 @checkout.route('/checkout')
 def index():
-    id = session['cart_number']
-
     return render_template('checkout.html')
 
 
@@ -36,6 +34,9 @@ def order_customer():
                                          session['email_user'],
                                          (session['all_total_quantity']),
                                          (session['all_total_price']))
-
+        max_order = query.get_max_order()
+        max_order_int = max_order[0]
+        insert_products_in_orders = query.insert_into_products_orders(session['cart_array'], max_order_int)
         flash('תודה על קנייתך! מוזמן גם להעיף מבט על מגוון אירועים שלנו!')
+        session.pop('cart_array', None)
         return render_template('events.html')

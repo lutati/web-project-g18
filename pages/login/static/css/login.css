@@ -1,27 +1,5 @@
 @import "/static/css/general.css";
 
-.big-circle {
-    background-image: url("/pages/contactus/static/media/malabi.png");
-    position: absolute;
-    width: 470px;
-    height: 470px;
-    border-radius: 50%;
-    bottom: 45%;
-    right: 37%;
-    transform: translate(-30%, 38%);
-}
-
-.big-circle:after {
-    content: "";
-    position: absolute;
-    width: 360px;
-    height: 360px;
-    background-color: rgb(243, 240, 215);
-    border-radius: 50%;
-    top: calc(50% - 180px);
-    left: calc(50% - 180px);
-}
-
 .loginpage {
     border-bottom-style: solid;
 }

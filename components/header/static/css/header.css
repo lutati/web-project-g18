@@ -101,3 +101,8 @@ nav div a {
 .logout {
     margin-left: 3%;
 }
+
+#account_img{
+    width: 3vw;
+    margin-left: 2%;
+}

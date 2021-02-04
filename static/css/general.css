@@ -21,7 +21,6 @@ header {
 
 nav {
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
     background: rgb(80, 13, 50);
     border-radius: 10px;
@@ -83,13 +82,9 @@ nav div a {
 }
 
 .icon {
-    width: 25%; }
-/*}@import "footer/footer.css";*/
-
-body {
-    background-color: rgb(243, 240, 215);
-    direction: rtl;
+    width: 25%;
 }
+
 
 main {
     padding: 2%;

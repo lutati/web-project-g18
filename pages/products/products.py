@@ -84,7 +84,7 @@ def products_sahlav():
     if request.method == 'GET':
         myproduct_name = "סחלב"
         myproduct_type = request.args.get('type_sahlav')
-        cart_id_int = session['cart_number']
+        print(myproduct_type)
         new_quantity = request.args.get('quantityS')
         query = DBQuery()
         row = query.get_product_sahlav(myproduct_name, myproduct_type)

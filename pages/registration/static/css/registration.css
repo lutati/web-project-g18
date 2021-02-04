@@ -6,8 +6,15 @@ body{
     font-family: calibri;
 }
 
-.loginpage {
-    border-bottom-style: solid;
+
+.regis_title {
+    color: var(--primaryColor);
+    font-size: 2.5vw;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: darkgray;
+    padding-bottom: 3%;
 }
 
 .regisbox{
@@ -19,9 +26,13 @@ body{
     color: #fff;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
-    margin-top:30rem;
-    
+    margin-top:20rem;
 }
+
+.regisbox > form > p{
+    font-size: 1.2vw;
+}
+
 .error{
     font-size: 1vw;
     color:red;
@@ -43,12 +54,6 @@ body{
     transform: scale(1.2)
 }
 
-.regisH1{
-    margin: 0;
-    padding: 0 0 1vw;
-    text-align: center;
-    font-size: 1.5vw;
-}
 
 .regisbox p{
     margin: 0;
@@ -73,11 +78,13 @@ body{
     outline: none;
     height: 2.5vw;
     color: #fff;
-    font-size: 1vw;
+    font-size: 1.2vw;
 }
+
 .regisbox input[type="date"]{
     color:gray;
 }
+
 .regisbox input[class="btn"]
 {
     text-align: center;
@@ -93,13 +100,13 @@ body{
     margin-right:35%;
     margin-bottom:1%;
 }
+
 .regisbox input[class="btn"]:hover
 {
     cursor: pointer;
     background: white;
     color: #000;
     font-weight: bold;
-
 }
 
 

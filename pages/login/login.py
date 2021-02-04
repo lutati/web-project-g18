@@ -15,7 +15,6 @@ def index():
         password = request.form['password']
         query = DBQuery()
         user = query.user_data(uname, password)
-
         if user and len(user):
             session['logged_in'] = True
             session['username'] = user[0].First_Name
@@ -26,12 +25,7 @@ def index():
             session['gender'] = user[0].Gender
             print(session['email_user'])
             if 'is_cart' not in session:
-                query = DBQuery()
-                cart_id = query.get_max_order()
-                print(cart_id)
-                if cart_id:
-                    session['is_cart'] = True
-                    session['cart_number'] = cart_id[0].cartid
+                session['is_cart'] = True
 
             return render_template('homepage.html', user_session=session['username'],
                                    login_session=session['logged_in'])

@@ -13,73 +13,47 @@
 
 {% with messages = get_flashed_messages() %}
 
-              {% if messages %}
-                  <div class="changes">
-                <h5>
+    {% if messages %}
+        <div class="changes">
+            <h5>
                 {% for message in messages %}
-                  {{ message }}
+                    {{ message }}
                 {% endfor %}
-                </h5>
-                  </div>
-              {% endif %}
-            {% endwith %}
-    <div class="grid-container">
-
-        <!-- header-right-left-footer-->
-        <div class="item1">
-            <!--nav-->
+            </h5>
         </div>
-        <!--right side-->
-        <div class="item2">
-            <h3 class="h3">אירועי חברה</h3>
-            <p class="text">להפוך את יום הגיבוש או האירוע לחוויה ולפנק <br> את הצוות שלך במלבי טרי עם תוספות<br> מטורפות ומגוונות</p>
-            <img class="eventspic" src="{{ url_for('events.static', filename='media/event2.png') }}" alt="pic"></img>
-            <img class="phoneEv" src="{{ url_for('events.static', filename='media/phone.png') }}" alt="pic"></img>
-            <p class="phoneP">לפרטים נוספים חייגו : 04-8422554</p>
-        </div>
-        <!--left side-->
+    {% endif %}
+{% endwith %}
+<div class="grid-container">
 
-        <div class="item3">
-            <h3 class="h3">דוכנים לחגיגות</h3>
-            <p class="text">לשדרג את האירוע שלך עם דוכן מלבי מפנק, בלי מאמץ<br>ימי הולדת | חתונות | מסיבות <br>כל אירוע משמח צריך להיות גם מתוק</p>
-              <img class="eventspic" src="{{ url_for('events.static', filename='media/event1.png') }}" alt="pic"></img>
-           <img class="phoneEv" src="{{ url_for('events.static', filename='media/phone.png') }}" alt="pic"></img>
-            <p class="phoneP">לפרטים נוספים חייגו : 04-8422554</p>
-
-
-        </div>
-        <div class="item4"> </div>
+    <!-- header-right-left-footer-->
+    <div class="item1">
+        <!--nav-->
     </div>
+    <!--right side-->
+    <div class="item2">
+        <h3 class="h3">אירועי חברה</h3>
+        <p class="text">להפוך את יום הגיבוש או האירוע לחוויה ולפנק <br> את הצוות שלך במלבי טרי עם תוספות<br> מטורפות
+            ומגוונות</p>
+        <img class="eventspic" src="{{ url_for('events.static', filename='media/event2.png') }}" alt="pic"></img>
+        <img class="phoneEv" src="{{ url_for('events.static', filename='media/phone.png') }}" alt="pic"></img>
+        <p class="phoneP">לפרטים נוספים חייגו : 04-8422554</p>
+    </div>
+    <!--left side-->
+
+    <div class="item3">
+        <h3 class="h3">דוכנים לחגיגות</h3>
+        <p class="text">לשדרג את האירוע שלך עם דוכן מלבי מפנק, בלי מאמץ<br>ימי הולדת | חתונות | מסיבות <br>כל אירוע משמח
+            צריך להיות גם מתוק</p>
+        <img class="eventspic" src="{{ url_for('events.static', filename='media/event1.png') }}" alt="pic"></img>
+        <img class="phoneEv" src="{{ url_for('events.static', filename='media/phone.png') }}" alt="pic"></img>
+        <p class="phoneP">לפרטים נוספים חייגו : 04-8422554</p>
+
+
+    </div>
+    <div class="item4"></div>
+</div>
 {% include ('footer.html') %}
-    <!--Footer-->
-{#    <footer>#}
-{#        <div class="container2">#}
-{#            <div class="location">#}
-{#                <img src="../footer/logos/location.png" alt="image1" class="footericons">#}
-{#                <h2>כתובת</h2>#}
-{#                <h3>קיבוץ דפנה,<br> צמוד לקניונית<br> waze מלביהו</h3>#}
-{#            </div>#}
-{##}
-{#            <div class="phone">#}
-{#                <img src="../footer/logos/phone.png" alt="image1" class="footericons">#}
-{#                <h2>טלפון</h2>#}
-{#                <h3>052-5418835</h3>#}
-{#            </div>#}
-{##}
-{#            <div class="time">#}
-{#                <img src="../footer/logos/time.png" alt="image1" class="footericons">#}
-{#                <h2>שעות פעילות</h2>#}
-{#                <h3>ימים ד'-ה' 15:00-23:00<br>יום ו' 10:00-18:00<br>יום ש' 10:00-18:00</h3>#}
-{#            </div>#}
-{##}
-{#            <div class="contact">#}
-{#                <img src="../footer/logos/contact.png" alt="image1" class="footericons">#}
-{#                <h2>צרו קשר</h2>#}
-{#                <h3>כתבו לנו<br>malabiyahu@gmail.com</h3>#}
-{#            </div>#}
-{#        </div>#}
-{#        <h6><img src="../footer/logos/rights.png" alt="rights" class="rights">Developed by: Liran, Gal, Chen, Linoy</h6>#}
-{#    </footer>#}
+
 
 </body>
 

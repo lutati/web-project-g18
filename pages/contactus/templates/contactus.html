@@ -8,14 +8,8 @@
 
 
 
-{%  block page_body_header_add_item %}
-
-{% endblock %}
-
-
-
 {% block page_body_main_content %}
-<script src="https://kit.fontawesome.com/64d58efce2.js"></script>
+    <script src="https://kit.fontawesome.com/64d58efce2.js"></script>
     <div class="container1">
         <span class="big-circle"></span>
         <div class="form">
@@ -25,9 +19,10 @@
                 </p>
 
 
-
                 <div class="social-media">
-                    <p>קיבוץ דפנה, צמוד לקניונית<br> שעות פעילות: ימים ד'-ה' בין השעות 15:00-23:00<br> ימים ו'-ש' בין השעות 10:00-18:00<br> malabiahu@gmail.com <br> 04-8422554 <br> וכדי לעשות לכם את היום מתוק יותר, תוכלו למצוא אותנו גם בימי שישי במתחם מיקדו
+                    <p>קיבוץ דפנה, צמוד לקניונית<br> שעות פעילות: ימים ד'-ה' בין השעות 15:00-23:00<br> ימים ו'-ש' בין
+                        השעות 10:00-18:00<br> malabiahu@gmail.com <br> 04-8422554 <br> וכדי לעשות לכם את היום מתוק יותר,
+                        תוכלו למצוא אותנו גם בימי שישי במתחם מיקדו
                         סנטר ת"א,
                         <br>ובימי שבת בחוף גורדון ת"א.<br> חפשו אותנו ברשתות החברתיות</p>
 
@@ -52,15 +47,15 @@
                 <span class="circle two"></span>
                 <!--form-->
                 <div class=error id="error_message"></div>
-                <form method="post" action="/contactus">
+                <form onsubmit="return validate();" method="post" action="/contactus">
 
                     <h3 class="title">צור קשר</h3>
                     <div class="input-container">
-                        <input type="text" placeholder="שם" class="input" id="name" name="fullname" required />
+                        <input type="text" placeholder="שם" class="input" id="name" name="fullname" required/>
                     </div>
 
                     <div class="input-container">
-                        <input type="email" placeholder="email" class="input" id="email" name="email" required />
+                        <input type="email" placeholder="email" class="input" id="email" name="email" required/>
                     </div>
 
                     <div class="input-container">
@@ -78,7 +73,5 @@
 {% endblock %}
 
 {% block page_body_js %}
-    <script src="{{ url_for('contactus.static', filename='js/contactus1.js') }}"></script>
+    <script src="{{ url_for('contactus.static', filename='js/contactus2.js') }}"></script>
 {% endblock %}
-
-

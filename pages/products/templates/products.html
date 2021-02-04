@@ -7,24 +7,17 @@
 {% endblock %}
 
 
-
-{% block page_body_header_add_item %}
-
-{% endblock %}
-
-
-
 {% block page_body_main_content %}
     <div class="flash">
-  {% with messages = get_flashed_messages() %}
-              {% if messages %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
                 <ul>
-                {% for message in messages %}
-                  {{ message }}
-                {% endfor %}
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
                 </ul>
-              {% endif %}
-            {% endwith %}
+            {% endif %}
+        {% endwith %}
     </div>
     <h1 class="title">מוצרי החנות</h1>
 
@@ -39,8 +32,9 @@
                 <form action="/vradim" method="get" id="rose_product">
                     <h4 class="product_details">מחיר: 25 ש"ח ליחידה</h4>
                     <h4 class="product_details"> כמות:</h4>
-                      <div>
-                        <input class="quantity" type="number" id="number1" step="1" min="1" max="" name="quantityV" value="1"
+                    <div>
+                        <input class="quantity" type="number" id="number1" step="1" min="1" max="" name="quantityV"
+                               value="1"
                                title="Qty" size="4">
                     </div>
                     <br><br>
@@ -57,13 +51,14 @@
                 <div class="sahlav_options" id="sahlav_options">
                     <h4 class="product_details">מחיר: 15 ש"ח ליחידה</h4>
                     <select class="select_box" name="type_sahlav" required>
-                        <option value="סוג" select hidden>סוג</option>
+                        <option value="" select hidden>סוג</option>
                         <option value="חלבי" name="milk">חלבי</option>
                         <option value="טבעוני" name="vegan">טבעוני</option>
                     </select>
                     <h4 class="product_details"> כמות:</h4>
-                      <div>
-                        <input class="quantity" type="number" id="number1" step="1" min="1" max="" name="quantityS" value="1"
+                    <div>
+                        <input class="quantity" type="number" id="number1" step="1" min="1" max="" name="quantityS"
+                               value="1"
                                title="Qty" size="4">
                     </div>
                     <br><br>
@@ -80,12 +75,12 @@
                 <form action="/malabi" method="get" id="malabi_product">
                     <h4 class="product_details">מחיר: 10 ש"ח ליחידה</h4>
                     <select class="select_box" name="type_malabi" required>
-                        <option select hidden>סוג</option>
+                        <option value="" select hidden>סוג</option>
                         <option value="חלבי">חלבי</option>
                         <option value="טבעוני">טבעוני</option>
                     </select> <br><br>
                     <select class="select_box" name="syrup" required>
-                        <option value="סירופ" select hidden>סירופ</option>
+                        <option value="" select hidden>סירופ</option>
                         <option value="מי ורדים">מי ורדים</option>
                         <option value="אספרסו"> אספרסו</option>
                         <option value="פירות יער">פירות יער</option>
@@ -94,15 +89,16 @@
                         <option value="פיסטוק">פיסטוק</option>
                     </select><br><br>
                     <select class="select_box" id="topping" name="toppings" value="adds" required><br>
-                        <option name="adds1" value="תוספות" select hidden>תוספת</option>
+                        <option name="adds1" value="" select hidden>תוספת</option>
                         <option name="adds1" value="קדאיף">שערות קדאיף</option>
                         <option name="adds2" value="בוטנים מלוחים">בוטנים מלוחים</option>
                         <option name="adds3" value="בוטנים מסוכרים">בוטנים מסוכרים</option>
                         <option name="adds4" value="קוקוס קלוי">קוקוס קלוי</option>
                     </select><br>
                     <h5 class="product_details"> כמות:</h5>
-                     <div>
-                        <input class="quantity" type="number" id="number1" step="1" min="1" max="" name="quantity" value="1"
+                    <div>
+                        <input class="quantity" type="number" id="number1" step="1" min="1" max="" name="quantity"
+                               value="1"
                                title="Qty" size="4">
                     </div>
                     <br>
@@ -110,15 +106,12 @@
                             onclick="finishOrder()">
                         הוסף לעגלה
                     </button>
-
                 </form>
             </div>
-
         </div>
 
-        <div class="footer">
+        <div class="footer"></div>
 
-        </div>
     </div>
 
 {% endblock %}
