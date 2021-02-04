@@ -11,7 +11,7 @@
     <!--registration-->
     <h1 class="regis_title">הרשמה לאתר</h1>
     <div class="regisbox">
-        <img src="{{ url_for('registration.static', filename='media/logo.png') }}" class="logo1">
+        <img src="/static/media/logo.png" class="logo1">
         <div class=error id="error_message"></div>
         <form onsubmit="return validate();" method="post" action="/registration"><br><br>
             <p>שם פרטי </p>

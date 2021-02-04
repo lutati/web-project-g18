@@ -86,9 +86,15 @@ nav div a {
     margin-left: 0;
     width: 15%;
 }
+
 .icon {
     width: 25%;
 }
+
+.logoBar:hover, .icon:hover {
+    transform: scale(1.1);
+}
+
 .hello_user{
     color:white;
     margin-left: 2%;
